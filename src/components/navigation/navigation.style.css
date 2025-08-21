@@ -34,7 +34,8 @@ header {
   padding: 10px 0px;
   border: none;
   border-radius: 20px;
-  color: hsl(0, 0%, 20%);
+  color: hsl(0, 0%, 0%);
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
 }
@@ -48,7 +49,7 @@ header {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  max-width: 150px;
+  max-width: 80px;
   width: 100%;
 }
 
@@ -126,6 +127,10 @@ header {
   @media screen and (max-width: 800px) {
     .nav-holder {
       display: none;
+    }
+
+    .btn-nav-holder {
+      max-width: 150px;
     }
 
     .mobile-nav {
