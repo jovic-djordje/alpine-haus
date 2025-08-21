@@ -1,5 +1,6 @@
 import logo from "./logo.png";
 import heroImage from "./hero-image.png";
+import aboutImage from "./about-section-image.png";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="alpine haus logo" className={className} />;
@@ -15,4 +16,8 @@ const HeroImage = ({ className }) => {
   );
 };
 
-export { Logo, HeroImage };
+const AboutImage = ({ className }) => {
+  return <img src={aboutImage} alt="restaurant" className={className} />;
+};
+
+export { Logo, HeroImage, AboutImage };
