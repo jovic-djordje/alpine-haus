@@ -105,6 +105,21 @@ const Home = () => {
           </Link>
         </div>
       </section>
+
+      <section className="reserve-section">
+        <div className="reserve-section-holder section-holder">
+          <div className="reserve-section-text-holder">
+            <h2 className="reserve-section-title">reserve your table today</h2>
+            <p className="reserve-section-text">
+              Experience the warmth of <span>alpine</span> hospitality. Book
+              your table for an unforgettable dining experience.
+            </p>
+            <Link className="reserve-link">
+              <button className="reserve-btn">Book Now</button>
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };
