@@ -1,9 +1,31 @@
 import { Link } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
 import "./home.style.css";
-import { AboutImage } from "../../assets/images";
+import {
+  AboutImage,
+  FeaturesFirstDish,
+  FeaturesSecondDish,
+  FeaturesThirdDish,
+} from "../../assets/images";
 
 const Home = () => {
+  const dishes = [
+    {
+      id: 1,
+      image: <FeaturesFirstDish className="features-img" />,
+      text: "Wiener Schnitzel",
+    },
+    {
+      id: 2,
+      image: <FeaturesSecondDish className="features-img" />,
+      text: "Sauerbraten",
+    },
+    {
+      id: 3,
+      image: <FeaturesThirdDish className="features-img" />,
+      text: "Apfelstrudel",
+    },
+  ];
   return (
     <main>
       <section className="hero-section">
@@ -51,6 +73,36 @@ const Home = () => {
             </div>
           </div>
           <AboutImage className="about-section-img" />
+        </div>
+      </section>
+
+      <section className="features-section">
+        <div className="features-section-holder section-holder">
+          <div className="features-section-text-holder">
+            <h4>delicious</h4>
+            <h2 className="feauters-section-title">
+              Taste <span>the</span> heart <span>of</span> alpine cuisine
+            </h2>
+            <p className="features-section-text">
+              At <span>alpine haus</span>, we bring you the essence of
+              traditional <span>austrian-german</span> dishes, crafted with love
+              and authenticity. Join us for a culinary journey that warms the
+              heart and soul.
+            </p>
+          </div>
+
+          <div className="feauters-section-card-holder">
+            {dishes.map((dish) => (
+              <div className="features-card" key={dish.id}>
+                {dish.image}
+                <p className="features-card-text">{dish.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <Link to="/menu" className="features-link">
+            <button className="features-btn">View Menu</button>
+          </Link>
         </div>
       </section>
     </main>
