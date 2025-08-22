@@ -189,6 +189,108 @@
   cursor: pointer;
 }
 
+/* FEATURES SECTION */
+.features-section {
+  background-color: hsl(0, 0%, 100%);
+}
+
+.features-section-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.features-section-text-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 750px;
+  width: 100%;
+}
+
+.features-section-text-holder h4 {
+  text-transform: capitalize;
+  color: hsl(0, 0%, 0%);
+}
+
+.feauters-section-title {
+  font-size: 50px;
+  font-family: "Bree Serif";
+  text-transform: capitalize;
+  color: hsl(0, 0%, 0%);
+}
+
+.feauters-section-title span {
+  text-transform: lowercase;
+}
+
+.features-section-text {
+  max-width: 700px;
+  width: 100%;
+  line-height: 1.7;
+  color: hsl(0, 0%, 0%);
+}
+
+.features-section-text span {
+  text-transform: capitalize;
+}
+
+.feauters-section-card-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.features-card {
+  max-width: 380px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.features-img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.features-card-text {
+  font-family: "Bree Serif";
+  font-size: 28px;
+  color: hsl(0, 0%, 0%);
+}
+
+.features-link {
+  max-width: 100px;
+  width: 100%;
+  text-decoration: none;
+}
+
+.features-btn {
+  width: 100%;
+  padding: 10px 0px;
+  border: none;
+  border-radius: 20px;
+  font-family: inherit;
+  font-weight: 500;
+  transition: all 0.3s;
+  background-color: #ccc;
+  color: hsl(0, 0%, 0%);
+}
+
+.features-btn:hover {
+  cursor: pointer;
+  transform: translateY(-4px);
+}
+
 @media screen and (max-width: 1200px) {
   .hero-section-holder {
     width: 95%;
@@ -229,6 +331,22 @@
     max-width: 400px;
     min-height: 400px;
   }
+
+  .features-section-text-holder {
+    max-width: 660px;
+  }
+
+  .feauters-section-title {
+    font-size: 45px;
+  }
+
+  .features-section-text {
+    font-size: 15px;
+  }
+
+  .features-card-text {
+    font-size: 24px;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -259,6 +377,16 @@
   .about-section-img {
     max-width: 800px;
   }
+
+  .feauters-section-card-holder {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .features-card {
+    max-width: 800px;
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 520px) {
@@ -267,6 +395,10 @@
   }
 
   .about-section-title {
+    font-size: 35px;
+  }
+
+  .feauters-section-title {
     font-size: 35px;
   }
 }
