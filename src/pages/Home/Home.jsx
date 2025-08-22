@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
+import { FiSmartphone } from "react-icons/fi";
+import { FiMail } from "react-icons/fi";
+import { FiMapPin } from "react-icons/fi";
 import "./home.style.css";
 import {
   AboutImage,
@@ -24,6 +27,28 @@ const Home = () => {
       id: 3,
       image: <FeaturesThirdDish className="features-img" />,
       text: "Apfelstrudel",
+    },
+  ];
+
+  const contacts = [
+    {
+      id: 1,
+      icon: <FiMail className="contact-section-icon" />,
+      info: "alpinehaus@mail.com",
+      text: "Reach out for private dining, events, or inquiries",
+    },
+    {
+      id: 2,
+      icon: <FiSmartphone className="contact-section-icon" />,
+      info: "(+123) 456 789",
+      text: "We are here to arrange your reservation with care.",
+    },
+
+    {
+      id: 3,
+      icon: <FiMapPin className="contact-section-icon" />,
+      info: "usa location",
+      text: "Join us at our address and indulge in a refined experience.",
     },
   ];
   return (
@@ -118,6 +143,22 @@ const Home = () => {
               <button className="reserve-btn">Book Now</button>
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="contact-section">
+        <div className="contact-section-holder section-holder">
+          {contacts.map((contact) => (
+            <div className="contact-section-card" key={contact.id}>
+              <div className="contact-section-card-width">
+                <div className="contact-section-card-icon-holder">
+                  {contact.icon}
+                  <h4 className="contact-section-card-title">{contact.info}</h4>
+                </div>
+                <p className="contact-section-card-text">{contact.text}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>
