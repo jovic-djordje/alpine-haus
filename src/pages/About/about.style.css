@@ -1,0 +1,15 @@
+.about-page-hero-section {
+  background-color: hsl(207, 66%, 22%);
+  min-height: calc(100vh - 80px); /* 80px = visina navigacije */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-section-holder h4 {
+  color: hsl(0, 0%, 100%);
+}
+
+.about-page-hero-btn {
+  background-color: hsl(207, 66%, 12%);
+}
