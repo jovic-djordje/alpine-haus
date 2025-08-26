@@ -4,6 +4,7 @@ import aboutImage from "./about-section-image.png";
 import featuresFirstDish from "./dish-one.png";
 import featuresSecondDish from "./dish-two.png";
 import featuresThirdDish from "./dish-three.png";
+import restaurantInterior from "./about-page-about-section-img.png";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="alpine haus logo" className={className} />;
@@ -53,6 +54,16 @@ const FeaturesThirdDish = ({ className }) => {
   );
 };
 
+const RestaurantInterior = ({ className }) => {
+  return (
+    <img
+      src={restaurantInterior}
+      alt="restaurant interior"
+      className={className}
+    />
+  );
+};
+
 export {
   Logo,
   HeroImage,
@@ -60,4 +71,5 @@ export {
   FeaturesFirstDish,
   FeaturesSecondDish,
   FeaturesThirdDish,
+  RestaurantInterior,
 };

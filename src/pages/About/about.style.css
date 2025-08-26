@@ -1,6 +1,8 @@
+/* ABOUT PAGE - HERO SECTION */
+
 .about-page-hero-section {
   background-color: hsl(207, 66%, 22%);
-  min-height: calc(100vh - 80px); /* 80px = visina navigacije */
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,4 +14,28 @@
 
 .about-page-hero-btn {
   background-color: hsl(207, 66%, 12%);
+}
+
+/* ABOUT PAGE - ABOUT-SECTION */
+.about-section-text-holder h4 {
+  color: hsl(0, 0%, 100%);
+}
+
+.about-section-text span {
+  text-transform: capitalize;
+}
+
+.about-btn-holder-about-page {
+  max-width: 150px;
+}
+
+.specials-link {
+  text-decoration: none;
+  width: 100%;
+}
+
+.about-page-btn {
+  background-color: hsl(207, 65%, 37%);
+  color: hsl(0, 0%, 100%);
+  justify-content: center;
 }
