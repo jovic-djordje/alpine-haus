@@ -1,0 +1,114 @@
+.menu-page-hero-section {
+  background-color: hsl(207, 66%, 22%);
+}
+
+.menu-hero-section-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.menu-hero-section-title {
+  font-size: 60px;
+  font-family: "Bree Serif";
+  text-transform: capitalize;
+  max-width: 600px;
+  width: 100%;
+  color: hsl(0, 0%, 100%);
+}
+
+.menu-hero-section-text {
+  max-width: 600px;
+  width: 100%;
+  color: hsl(0, 0%, 100%);
+  line-height: 1.7;
+}
+
+.menu-hero-section-text span {
+  text-transform: capitalize;
+}
+
+.menu-food-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.menu-icon-holder {
+  background-color: hsl(0, 0%, 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-family: "Bree Serif";
+}
+
+.menu-icon-holder:hover .label {
+  opacity: 1;
+  top: -35px;
+  color: hsl(0, 0%, 100%);
+}
+
+.menu-icon-holder:hover .menu-icon {
+  transform: scale(1.2);
+}
+
+.menu-icon {
+  width: 25px;
+  height: 25px;
+  transition: all 0.3s;
+}
+
+@media screen and (max-width: 1000px) {
+  .menu-hero-section-title {
+    font-size: 55px;
+  }
+
+  .menu-hero-section-text {
+    font-size: 15px;
+  }
+
+  .label {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .menu-hero-section-title {
+    font-size: 45px;
+  }
+
+  .menu-food-nav {
+    gap: 15px;
+  }
+
+  .menu-icon-holder {
+    width: 35px;
+    height: 35px;
+  }
+
+  .menu-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
