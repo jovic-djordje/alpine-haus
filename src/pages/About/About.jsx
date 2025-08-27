@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import { IoIosArrowForward } from "react-icons/io";
+import { FiSmartphone } from "react-icons/fi";
+import { FiMail } from "react-icons/fi";
+import { FiMapPin } from "react-icons/fi";
 import { RestaurantInterior } from "../../assets/images";
 
 import "./about.style.css";
@@ -51,6 +54,60 @@ const About = () => {
             </div>
           </div>
           <RestaurantInterior className="about-section-img" />
+        </div>
+      </section>
+
+      <section className="contact-section">
+        <div className="about-page-contact-section-holder section-holder">
+          <div className="form-text-holder">
+            <h4>Connect</h4>
+            <h2 className="form-title">
+              Get <span>in</span> touch
+            </h2>
+            <p className="form-text">
+              We'd love to hear from you! Whether you have questions about our
+              menu, want to plan a special celebration, or just want to say
+              hello - we're here to help!
+            </p>
+            <div className="contact-info-holder">
+              <p className="contact-info ">
+                <FiMail />
+                info@alpinehaus.com
+              </p>
+              <p className="contact-info ">
+                <FiSmartphone /> 1800 123 4567
+              </p>
+              <p className="contact-info ">
+                {" "}
+                <FiMapPin />
+                Level 1, 12 Sample St, Sydney NSW 2000
+              </p>
+            </div>
+          </div>
+
+          <div className="form-holder">
+            <form action="">
+              <div className="inputs-holder">
+                <label htmlFor="name-input">Name</label>
+                <input type="text" id="name-input" />
+              </div>
+
+              <div className="inputs-holder">
+                <label htmlFor="email-input">Email</label>
+                <input type="email" id="email-input" />
+              </div>
+
+              <div className="inputs-holder">
+                <label htmlFor="message-input">Message</label>
+                <textarea
+                  name="text-area"
+                  id="message-input"
+                  placeholder="Type your message..."
+                ></textarea>
+              </div>
+              <button className="form-btn">Submit</button>
+            </form>
+          </div>
         </div>
       </section>
     </main>
