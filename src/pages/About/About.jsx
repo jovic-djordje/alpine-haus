@@ -110,6 +110,26 @@ const About = () => {
           </div>
         </div>
       </section>
+
+      <section className="location-section">
+        <div className="location-section-holder section-holder">
+          <div className="location-text-holder">
+            <h2 className="location-section-title">Location</h2>
+            <p className="location-section-text">
+              Visit us at our cozy location in <span>sydney</span>
+            </p>
+          </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.2942384838955!2d151.20929931521052!3d-33.86881658065781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae3f7b0c7f5d%3A0x1234567890abcdef!2sAlpine%20Haus!5e0!3m2!1sen!2sau!4v1234567890123"
+            width="100%"
+            height="400"
+            allowFullScreen={true} // camelCase i boolean
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade" // camelCase
+            title="Alpine Haus Location" // Dodaj title za accessibility
+          ></iframe>
+        </div>
+      </section>
     </main>
   );
 };

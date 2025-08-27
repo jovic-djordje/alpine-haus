@@ -165,6 +165,48 @@ textarea::placeholder {
   transform: translateY(-4px);
 }
 
+/* ABOUT PAGE - LOCATION SECTION */
+.location-section-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.location-text-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.location-section-title {
+  font-family: "Bree Serif";
+  font-size: 50px;
+}
+
+.location-section-text span {
+  text-transform: capitalize;
+}
+
+iframe {
+  border: none;
+  border-radius: 20px;
+  position: relative;
+  isolation: isolate;
+}
+
+iframe::after {
+  content: "";
+  position: absolute;
+  background: #000;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.6;
+}
+
 @media screen and (max-width: 1200px) {
   .form-holder {
     max-width: 450px;
@@ -190,6 +232,14 @@ textarea::placeholder {
 
   .form-holder {
     max-width: 400px;
+  }
+
+  .location-section-title {
+    font-size: 45px;
+  }
+
+  .location-section-text {
+    font-size: 15px;
   }
 }
 
@@ -223,6 +273,10 @@ textarea::placeholder {
 
 @media screen and (max-width: 520px) {
   .form-title {
+    font-size: 35px;
+  }
+
+  .location-section-title {
     font-size: 35px;
   }
 }
