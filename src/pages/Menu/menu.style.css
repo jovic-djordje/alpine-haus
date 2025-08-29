@@ -1,3 +1,5 @@
+/* MENU HERO SECTION */
+
 .menu-page-hero-section {
   background-color: hsl(207, 66%, 22%);
 }
@@ -79,6 +81,79 @@
   transition: all 0.3s;
 }
 
+/* MENU APPETIZER SECTION  */
+.appetizers-section {
+  background-color: hsl(207, 66%, 22%);
+}
+
+.appetizers-section-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.appetizers-title {
+  font-family: "Bree Serif";
+  font-size: 50px;
+  color: hsl(0, 0%, 100%);
+}
+
+.meal-holder {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 po redu desktop */
+  place-items: baseline;
+  justify-items: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.app-meal-cart {
+  max-width: 280px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.app-meal-title-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-meal-title {
+  font-family: "Bree Serif";
+  color: hsl(0, 0%, 100%);
+  font-size: 24px;
+}
+
+.app-meal-text {
+  color: hsl(0, 0%, 100%);
+  font-size: 15px;
+}
+
+.menu-img {
+  max-width: 200px;
+  width: 100%;
+}
+
+.app-meal-price {
+  color: hsl(51, 100%, 50%);
+  font-size: 18px;
+}
+
+@media screen and (max-width: 1200px) {
+  .meal-holder {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .menu-hero-section-title {
     font-size: 55px;
@@ -91,6 +166,36 @@
   .label {
     font-size: 15px;
   }
+
+  .appetizers-title {
+    font-size: 45px;
+  }
+
+  .meal-cart {
+    max-width: 220px;
+  }
+
+  .meal-title {
+    font-size: 20px;
+  }
+
+  .meal-price {
+    font-size: 16px;
+  }
+
+  .meal-text {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .meal-holder {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .meal-cart {
+    max-width: 280px;
+  }
 }
 
 @media screen and (max-width: 520px) {
@@ -99,7 +204,7 @@
   }
 
   .menu-food-nav {
-    gap: 15px;
+    gap: 12px;
   }
 
   .menu-icon-holder {
@@ -110,5 +215,13 @@
   .menu-icon {
     width: 20px;
     height: 20px;
+  }
+
+  .appetizers-title {
+    font-size: 35px;
+  }
+
+  .meal-holder {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

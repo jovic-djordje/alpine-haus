@@ -26,7 +26,7 @@ const Home = () => {
     {
       id: 3,
       image: <FeaturesThirdDish className="features-img" />,
-      text: "Apfelstrudel",
+      text: "Bavarian Pretzel",
     },
   ];
 
