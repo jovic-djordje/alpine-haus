@@ -82,11 +82,11 @@
 }
 
 /* MENU APPETIZER SECTION  */
-.appetizers-section {
+.meal-sections {
   background-color: hsl(207, 66%, 22%);
 }
 
-.appetizers-section-holder {
+.meal-sections-holder {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -94,7 +94,7 @@
   gap: 50px;
 }
 
-.appetizers-title {
+.meal-section-title {
   font-family: "Bree Serif";
   font-size: 50px;
   color: hsl(0, 0%, 100%);
@@ -146,25 +146,6 @@
 .app-meal-price {
   color: hsl(51, 100%, 50%);
   font-size: 18px;
-}
-
-/* MENU SIDES SECTION  */
-.sides-section {
-  background-color: hsl(207, 66%, 22%);
-}
-
-.sides-section-holder {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 50px;
-}
-
-.sides-title {
-  font-family: "Bree Serif";
-  font-size: 50px;
-  color: hsl(0, 0%, 100%);
 }
 
 @media screen and (max-width: 1200px) {
