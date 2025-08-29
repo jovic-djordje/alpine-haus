@@ -17,6 +17,10 @@ import sideMealThree from "./side-meal-three.png";
 import sideMealFour from "./side-meal-four.png";
 import sideMealFive from "./side-meal-five.png";
 import sideMealSix from "./side-meal-six.png";
+import saladOne from "./salad-one.png";
+import saladTwo from "./salad-two.png";
+import saladThree from "./salad-three.png";
+import saladFour from "./salad-four.png";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="alpine haus logo" className={className} />;
@@ -126,6 +130,22 @@ const SideMealSix = ({ className }) => {
   return <img src={sideMealSix} alt="Mashed Potatoes" className={className} />;
 };
 
+const SaladOne = ({ className }) => {
+  return <img src={saladOne} alt="Caesar Salad" className={className} />;
+};
+
+const SaladTwo = ({ className }) => {
+  return <img src={saladTwo} alt="Mixed Greens" className={className} />;
+};
+
+const SaladThree = ({ className }) => {
+  return <img src={saladThree} alt="Goat Cheese" className={className} />;
+};
+
+const SaladFour = ({ className }) => {
+  return <img src={saladFour} alt="Golden Beet & Pear" className={className} />;
+};
+
 export {
   Logo,
   HeroImage,
@@ -146,4 +166,8 @@ export {
   SideMealFour,
   SideMealFive,
   SideMealSix,
+  SaladOne,
+  SaladTwo,
+  SaladThree,
+  SaladFour,
 };
