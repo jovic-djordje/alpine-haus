@@ -148,6 +148,25 @@
   font-size: 18px;
 }
 
+/* MENU SIDES SECTION  */
+.sides-section {
+  background-color: hsl(207, 66%, 22%);
+}
+
+.sides-section-holder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.sides-title {
+  font-family: "Bree Serif";
+  font-size: 50px;
+  color: hsl(0, 0%, 100%);
+}
+
 @media screen and (max-width: 1200px) {
   .meal-holder {
     grid-template-columns: repeat(3, 1fr);

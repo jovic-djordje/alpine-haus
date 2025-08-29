@@ -11,6 +11,12 @@ import appMealThree from "./appetizer-meal-three.png";
 import appMealFour from "./appetizer-meal-four.png";
 import appMealFive from "./appetizer-meal-five.png";
 import appMealSix from "./appetizer-meal-six.png";
+import sideMealOne from "./side-meal-one.png";
+import sideMealTwo from "./side-meal-two.png";
+import sideMealThree from "./side-meal-three.png";
+import sideMealFour from "./side-meal-four.png";
+import sideMealFive from "./side-meal-five.png";
+import sideMealSix from "./side-meal-six.png";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="alpine haus logo" className={className} />;
@@ -94,6 +100,32 @@ const AppMealSix = ({ className }) => {
   return <img src={appMealSix} alt="Pâté Board" className={className} />;
 };
 
+const SideMealOne = ({ className }) => {
+  return (
+    <img src={sideMealOne} alt="Grilled Asparagus" className={className} />
+  );
+};
+
+const SideMealTwo = ({ className }) => {
+  return <img src={sideMealTwo} alt="Potato Salad" className={className} />;
+};
+
+const SideMealThree = ({ className }) => {
+  return <img src={sideMealThree} alt="Kasespatzle" className={className} />;
+};
+
+const SideMealFour = ({ className }) => {
+  return <img src={sideMealFour} alt="French Fries" className={className} />;
+};
+
+const SideMealFive = ({ className }) => {
+  return <img src={sideMealFive} alt="Sauerkraut" className={className} />;
+};
+
+const SideMealSix = ({ className }) => {
+  return <img src={sideMealSix} alt="Mashed Potatoes" className={className} />;
+};
+
 export {
   Logo,
   HeroImage,
@@ -108,4 +140,10 @@ export {
   AppMealFour,
   AppMealFive,
   AppMealSix,
+  SideMealOne,
+  SideMealTwo,
+  SideMealThree,
+  SideMealFour,
+  SideMealFive,
+  SideMealSix,
 };

@@ -13,10 +13,16 @@ import {
   AppMealSix,
   AppMealThree,
   AppMealTwo,
+  SideMealFive,
+  SideMealFour,
+  SideMealOne,
+  SideMealSix,
+  SideMealThree,
+  SideMealTwo,
 } from "../../assets/images";
 
 const Menu = () => {
-  const meals = [
+  const app = [
     {
       id: 1,
       image: <AppMealOne className="menu-img" />,
@@ -60,6 +66,45 @@ const Menu = () => {
       title: "Pâté Board",
       text: "Cognac, port & fresh herbs duck liver pâté, sopressata picante, cornichons, olives, grilled ciabatta.",
       price: "$23.00",
+    },
+  ];
+
+  const sides = [
+    {
+      id: 1,
+      image: <SideMealOne className="menu-img" />,
+      title: "Grilled Asparagus",
+      price: "$12.00",
+    },
+    {
+      id: 2,
+      image: <SideMealTwo className="menu-img" />,
+      title: "Potato Salad",
+      price: "$12.00",
+    },
+    {
+      id: 3,
+      image: <SideMealThree className="menu-img" />,
+      title: "Kasespatzle",
+      price: "$12.00",
+    },
+    {
+      id: 4,
+      image: <SideMealFour className="menu-img" />,
+      title: "French Fries",
+      price: "$12.00",
+    },
+    {
+      id: 5,
+      image: <SideMealFive className="menu-img" />,
+      title: "Sauerkraut",
+      price: "$12.00",
+    },
+    {
+      id: 6,
+      image: <SideMealSix className="menu-img" />,
+      title: "Mashed Potatoes",
+      price: "$12.00",
     },
   ];
 
@@ -110,7 +155,29 @@ const Menu = () => {
         <div className="appetizers-section-holder section-holder">
           <h2 className="appetizers-title">Appetizers</h2>
           <div className="meal-holder">
-            {meals.map((meal) => (
+            {app.map((meal) => (
+              <div className="app-meal-cart meal-cart" key={meal.id}>
+                {meal.image}
+                <div className="app-meal-title-holder">
+                  {" "}
+                  <h3 className="app-meal-title meal-title">{meal.title}</h3>
+                  <span className="app-meal-price meal-price">
+                    {meal.price}
+                  </span>
+                </div>
+
+                <p className="app-meal-text meal-text">{meal.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="sides-section">
+        <div className="sides-section-holder section-holder">
+          <h2 className="sides-title">Sides</h2>
+          <div className="meal-holder">
+            {sides.map((meal) => (
               <div className="app-meal-cart meal-cart" key={meal.id}>
                 {meal.image}
                 <div className="app-meal-title-holder">
