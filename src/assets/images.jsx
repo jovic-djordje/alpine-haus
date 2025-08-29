@@ -21,6 +21,11 @@ import saladOne from "./salad-one.png";
 import saladTwo from "./salad-two.png";
 import saladThree from "./salad-three.png";
 import saladFour from "./salad-four.png";
+import mainMealOne from "./main-meal-one.png";
+import mainMealTwo from "./main-meal-two.png";
+import mainMealThree from "./main-meal-three.png";
+import mainMealFour from "./main-meal-four.png";
+import mainMealFive from "./main-meal-five.png";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="alpine haus logo" className={className} />;
@@ -146,6 +151,30 @@ const SaladFour = ({ className }) => {
   return <img src={saladFour} alt="Golden Beet & Pear" className={className} />;
 };
 
+const MainMealOne = ({ className }) => {
+  return <img src={mainMealOne} alt="Wiener Schnitzel" className={className} />;
+};
+
+const MainMealTwo = ({ className }) => {
+  return <img src={mainMealTwo} alt="Jager Schnitzel" className={className} />;
+};
+
+const MainMealThree = ({ className }) => {
+  return (
+    <img src={mainMealThree} alt="Oktoberfest Chicken" className={className} />
+  );
+};
+
+const MainMealFour = ({ className }) => {
+  return (
+    <img src={mainMealFour} alt="Veal Jager Goulash" className={className} />
+  );
+};
+
+const MainMealFive = ({ className }) => {
+  return <img src={mainMealFive} alt="Mahi Mahi" className={className} />;
+};
+
 export {
   Logo,
   HeroImage,
@@ -170,4 +199,9 @@ export {
   SaladTwo,
   SaladThree,
   SaladFour,
+  MainMealOne,
+  MainMealTwo,
+  MainMealThree,
+  MainMealFour,
+  MainMealFive,
 };

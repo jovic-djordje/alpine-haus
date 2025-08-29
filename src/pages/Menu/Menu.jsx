@@ -13,6 +13,11 @@ import {
   AppMealSix,
   AppMealThree,
   AppMealTwo,
+  MainMealFive,
+  MainMealFour,
+  MainMealOne,
+  MainMealThree,
+  MainMealTwo,
   SaladFour,
   SaladOne,
   SaladThree,
@@ -143,6 +148,44 @@ const Menu = () => {
     },
   ];
 
+  const main = [
+    {
+      id: 1,
+      image: <MainMealOne className="menu-img" />,
+      title: "Wiener Schnitzel",
+      text: " Mashed potatoes & lingonberry sauce.",
+      price: "$27.00",
+    },
+    {
+      id: 2,
+      image: <MainMealTwo className="menu-img" />,
+      title: "Jager Schnitzel",
+      text: "Tenderized pan-seared niman ranch pork loin topped with jaeger sauce & kasespatzle.",
+      price: "$38.00",
+    },
+    {
+      id: 3,
+      image: <MainMealThree className="menu-img" />,
+      title: "Oktoberfest Chicken",
+      text: "Bourbon-maple glazed half a chicken & truffle fries.",
+      price: "$34.00",
+    },
+    {
+      id: 4,
+      image: <MainMealFour className="menu-img" />,
+      title: "Veal Jager Goulash",
+      text: "Veal shank prepared by old Vienna hunter recipe served with spaetzle.",
+      price: "$45.00",
+    },
+    {
+      id: 5,
+      image: <MainMealFive className="menu-img" />,
+      title: "Mahi Mahi",
+      text: "Pan seared fillet, blanched asparagus, toasted heirloom tomatoes & bureau blanc sauce.",
+      price: "$34.00",
+    },
+  ];
+
   return (
     <main>
       <section className="menu-page-hero-section">
@@ -174,10 +217,10 @@ const Menu = () => {
               <GiMeat className="menu-icon" />
               <span className="label">Main</span>
             </div>
-            <div className="menu-icon-holder">
+            {/*   <div className="menu-icon-holder">
               <GiLadle className="menu-icon" />
               <span className="label">Soups</span>
-            </div>
+            </div> */}
             <div className="menu-icon-holder">
               <GiBeerBottle className="menu-icon" />
               <div className="label">Drinks</div>
@@ -235,6 +278,28 @@ const Menu = () => {
           <h2 className="salads-title meal-section-title">Salads</h2>
           <div className="meal-holder">
             {salads.map((meal) => (
+              <div className="app-meal-cart meal-cart" key={meal.id}>
+                {meal.image}
+                <div className="app-meal-title-holder">
+                  {" "}
+                  <h3 className="app-meal-title meal-title">{meal.title}</h3>
+                  <span className="app-meal-price meal-price">
+                    {meal.price}
+                  </span>
+                </div>
+
+                <p className="app-meal-text meal-text">{meal.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="main-course-section meal-sections">
+        <div className="main-course-section-holder section-holder meal-sections-holder">
+          <h2 className="main-course-title meal-section-title">Main Course</h2>
+          <div className="meal-holder">
+            {main.map((meal) => (
               <div className="app-meal-cart meal-cart" key={meal.id}>
                 {meal.image}
                 <div className="app-meal-title-holder">
