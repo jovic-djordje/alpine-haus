@@ -13,6 +13,11 @@ import {
   AppMealSix,
   AppMealThree,
   AppMealTwo,
+  DrinkFive,
+  DrinkFour,
+  DrinkOne,
+  DrinkThree,
+  DrinkTwo,
   MainMealFive,
   MainMealFour,
   MainMealOne,
@@ -186,6 +191,43 @@ const Menu = () => {
     },
   ];
 
+  const drinks = [
+    {
+      id: 1,
+      image: <DrinkOne className="menu-img" />,
+      title: "Blueberry Lemonade",
+      price: "$15.00",
+    },
+
+    {
+      id: 2,
+      image: <DrinkTwo className="menu-img" />,
+      title: "Cranberry Paloma",
+      price: "$19.00",
+    },
+
+    {
+      id: 3,
+      image: <DrinkThree className="menu-img" />,
+      title: "Highland Espresso Martin",
+      price: "$17.00",
+    },
+
+    {
+      id: 4,
+      image: <DrinkFour className="menu-img" />,
+      title: "Watermelon Mojito",
+      price: "$16.00",
+    },
+
+    {
+      id: 5,
+      image: <DrinkFive className="menu-img" />,
+      title: "Woody Old Fashioned",
+      price: "$19.00",
+    },
+  ];
+
   return (
     <main>
       <section className="menu-page-hero-section">
@@ -235,15 +277,9 @@ const Menu = () => {
           <div className="meal-holder">
             {app.map((meal) => (
               <div className="app-meal-cart meal-cart" key={meal.id}>
+                <span className="app-meal-price meal-price">{meal.price}</span>
                 {meal.image}
-                <div className="app-meal-title-holder">
-                  {" "}
-                  <h3 className="app-meal-title meal-title">{meal.title}</h3>
-                  <span className="app-meal-price meal-price">
-                    {meal.price}
-                  </span>
-                </div>
-
+                <h3 className="app-meal-title meal-title">{meal.title}</h3>
                 <p className="app-meal-text meal-text">{meal.text}</p>
               </div>
             ))}
@@ -257,14 +293,10 @@ const Menu = () => {
           <div className="meal-holder">
             {sides.map((meal) => (
               <div className="app-meal-cart meal-cart" key={meal.id}>
+                <span className="app-meal-price meal-price">{meal.price}</span>
                 {meal.image}
-                <div className="app-meal-title-holder">
-                  {" "}
-                  <h3 className="app-meal-title meal-title">{meal.title}</h3>
-                  <span className="app-meal-price meal-price">
-                    {meal.price}
-                  </span>
-                </div>
+
+                <h3 className="app-meal-title meal-title">{meal.title}</h3>
 
                 <p className="app-meal-text meal-text">{meal.text}</p>
               </div>
@@ -279,14 +311,10 @@ const Menu = () => {
           <div className="meal-holder">
             {salads.map((meal) => (
               <div className="app-meal-cart meal-cart" key={meal.id}>
+                <span className="app-meal-price meal-price">{meal.price}</span>
                 {meal.image}
-                <div className="app-meal-title-holder">
-                  {" "}
-                  <h3 className="app-meal-title meal-title">{meal.title}</h3>
-                  <span className="app-meal-price meal-price">
-                    {meal.price}
-                  </span>
-                </div>
+
+                <h3 className="app-meal-title meal-title">{meal.title}</h3>
 
                 <p className="app-meal-text meal-text">{meal.text}</p>
               </div>
@@ -301,14 +329,28 @@ const Menu = () => {
           <div className="meal-holder">
             {main.map((meal) => (
               <div className="app-meal-cart meal-cart" key={meal.id}>
+                <span className="app-meal-price meal-price">{meal.price}</span>
                 {meal.image}
-                <div className="app-meal-title-holder">
-                  {" "}
-                  <h3 className="app-meal-title meal-title">{meal.title}</h3>
-                  <span className="app-meal-price meal-price">
-                    {meal.price}
-                  </span>
-                </div>
+
+                <h3 className="app-meal-title meal-title">{meal.title}</h3>
+
+                <p className="app-meal-text meal-text">{meal.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="drink-section meal-sections">
+        <div className="drink-section-holder section-holder meal-sections-holder">
+          <h2 className="drink-title meal-section-title">Drinks</h2>
+          <div className="meal-holder">
+            {drinks.map((meal) => (
+              <div className="app-meal-cart meal-cart" key={meal.id}>
+                <span className="app-meal-price meal-price">{meal.price}</span>
+                {meal.image}
+
+                <h3 className="app-meal-title meal-title">{meal.title}</h3>
 
                 <p className="app-meal-text meal-text">{meal.text}</p>
               </div>

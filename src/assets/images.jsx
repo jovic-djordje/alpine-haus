@@ -26,6 +26,11 @@ import mainMealTwo from "./main-meal-two.png";
 import mainMealThree from "./main-meal-three.png";
 import mainMealFour from "./main-meal-four.png";
 import mainMealFive from "./main-meal-five.png";
+import drinkOne from "./drink-one.png";
+import drinkTwo from "./drink-two.png";
+import drinkThree from "./drink-three.png";
+import drinkFour from "./drink-four.png";
+import drinkFive from "./drink-five.png";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="alpine haus logo" className={className} />;
@@ -175,6 +180,52 @@ const MainMealFive = ({ className }) => {
   return <img src={mainMealFive} alt="Mahi Mahi" className={className} />;
 };
 
+const DrinkOne = ({ className }) => {
+  return (
+    <img
+      src={drinkOne}
+      alt="Blueberry Lemonade Cocktail"
+      className={className}
+    />
+  );
+};
+
+const DrinkTwo = ({ className }) => {
+  return (
+    <img src={drinkTwo} alt="Cranberry Paloma Cocktail" className={className} />
+  );
+};
+
+const DrinkThree = ({ className }) => {
+  return (
+    <img
+      src={drinkThree}
+      alt=" Highland Espresso Martin Cocktail"
+      className={className}
+    />
+  );
+};
+
+const DrinkFour = ({ className }) => {
+  return (
+    <img
+      src={drinkFour}
+      alt="Watermelon Mojito Cocktail"
+      className={className}
+    />
+  );
+};
+
+const DrinkFive = ({ className }) => {
+  return (
+    <img
+      src={drinkFive}
+      alt="Woody Old Fashioned Cocktail"
+      className={className}
+    />
+  );
+};
+
 export {
   Logo,
   HeroImage,
@@ -204,4 +255,9 @@ export {
   MainMealThree,
   MainMealFour,
   MainMealFive,
+  DrinkOne,
+  DrinkTwo,
+  DrinkThree,
+  DrinkFour,
+  DrinkFive,
 };
