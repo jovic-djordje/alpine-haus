@@ -3,10 +3,11 @@ import Navigation from "./components/navigation/Navigation";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Menu from "./pages/Menu/Menu";
-import Contact from "./pages/Contact/Contact";
+import Specials from "./pages/Specials/Specials";
+import Reserve from "./pages/Reserve/Reserve";
+import Footer from "./components/footer/Footer";
 
 import "./App.css";
-import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/menu" element={<Menu />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/specials" element={<Specials />} />
+        <Route path="/reserve" element={<Reserve />} />
       </Routes>
       <Footer />
     </Router>

@@ -17,12 +17,14 @@ const Navigation = () => {
           <Link to="/menu" className="nav-item">
             Menu
           </Link>
-          <Link to="/contact" className="nav-item">
-            Contact Us
+          <Link to="/specials" className="nav-item">
+            Specials
           </Link>
         </nav>
         <div className="btn-nav-holder">
-          <button className="nav-btn">Reserve</button>
+          <Link to="/reserve" className="nav-btn-link">
+            <button className="nav-btn">Reserve</button>
+          </Link>
 
           <nav className="mobile-nav">
             <div className="ham-menu">

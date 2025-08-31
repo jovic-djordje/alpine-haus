@@ -27,6 +27,10 @@ header {
   text-decoration: none;
 }
 
+.nav-btn-link {
+  width: 100%;
+}
+
 .nav-btn {
   font-family: inherit;
   max-width: 100px;
