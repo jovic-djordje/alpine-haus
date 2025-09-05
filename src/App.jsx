@@ -8,11 +8,13 @@ import Reserve from "./pages/Reserve/Reserve";
 import Footer from "./components/footer/Footer";
 
 import "./App.css";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
       <Navigation />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

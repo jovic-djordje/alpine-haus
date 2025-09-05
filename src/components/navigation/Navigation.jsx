@@ -46,7 +46,7 @@ const Navigation = () => {
             <Link to="/menu" className="nav-item">
               Menu
             </Link>
-            <Link to="/contact" className="nav-item">
+            <Link to="/specials" className="nav-item">
               Contact Us
             </Link>
           </ul>

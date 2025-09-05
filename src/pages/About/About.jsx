@@ -57,7 +57,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="contact-section">
+      <section className="contact-section" id="contact">
         <div className="about-page-contact-section-holder section-holder">
           <div className="form-text-holder">
             <h4>Connect</h4>
