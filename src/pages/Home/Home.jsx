@@ -90,7 +90,7 @@ const Home = () => {
                 <button className="about-btn">Read More</button>
               </Link>
 
-              <Link className="hero-link about-link">
+              <Link to="/about#contact" className="hero-link about-link">
                 <button className=" about-btn about-contact-btn">
                   Contact <IoIosArrowForward className="about-btn-icon" />
                 </button>
