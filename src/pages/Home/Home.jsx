@@ -6,9 +6,14 @@ import { FiMapPin } from "react-icons/fi";
 import "./home.style.css";
 import {
   AboutImage,
+  AppMealOne,
   FeaturesFirstDish,
   FeaturesSecondDish,
   FeaturesThirdDish,
+  MainMealOne,
+  MainMealThree,
+  MainMealTwo,
+  SaladOne,
 } from "../../assets/images";
 
 const Home = () => {
@@ -21,7 +26,7 @@ const Home = () => {
     {
       id: 2,
       image: <FeaturesSecondDish className="features-img" />,
-      text: "Sauerbraten",
+      text: "Oktoberfest Chicken",
     },
     {
       id: 3,
@@ -34,7 +39,7 @@ const Home = () => {
     {
       id: 1,
       icon: <FiMail className="contact-section-icon" />,
-      info: "alpinehaus@mail.com",
+      info: "info@alpinehaus.com",
       text: "Reach out for private dining, events, or inquiries",
     },
     {
@@ -47,7 +52,7 @@ const Home = () => {
     {
       id: 3,
       icon: <FiMapPin className="contact-section-icon" />,
-      info: "usa location",
+      info: "Level 1, 12 sample st, sydney",
       text: "Join us at our address and indulge in a refined experience.",
     },
   ];
@@ -65,7 +70,7 @@ const Home = () => {
             <Link to="/menu" className="hero-link">
               <button className=" hero-btn hero-menu-btn">View Menu</button>
             </Link>
-            <Link className="hero-link">
+            <Link to="/reserve" className="hero-link">
               <button className="hero-btn">Reserve</button>
             </Link>
           </div>
@@ -139,7 +144,7 @@ const Home = () => {
               Experience the warmth of <span>alpine</span> hospitality. Book
               your table for an unforgettable dining experience.
             </p>
-            <Link className="reserve-link">
+            <Link to="/reserve#reserve" className="reserve-link">
               <button className="reserve-btn">Book Now</button>
             </Link>
           </div>

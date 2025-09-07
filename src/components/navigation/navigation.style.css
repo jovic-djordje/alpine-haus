@@ -1,5 +1,7 @@
 header {
   background-color: hsl(207, 66%, 22%);
+  position: relative; /* 🚀 da bi dropdown znao gdje je dno headera */
+  z-index: 1000;
 }
 
 .header-holder {
@@ -25,6 +27,12 @@ header {
 .nav-item {
   color: hsl(0, 0%, 100%);
   text-decoration: none;
+  font-size: 18px;
+  transition: all 0.3s;
+}
+
+.nav-item:hover {
+  transform: translateY(-4px);
 }
 
 .nav-btn-link {
@@ -59,6 +67,12 @@ header {
 
 /* MOBILE NAVIGATION */
 
+html.menu-open,
+body.menu-open {
+  overflow: hidden;
+  height: 100vh;
+}
+
 .mobile-nav {
   display: flex;
   display: none;
@@ -91,54 +105,102 @@ header {
   top: 75%;
 }
 
-.off-screen-menu {
-  background-color: hsl(207, 65%, 27%);
-  height: 320px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  right: 0;
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  transition: 0.3s ease;
-  transform: translateX(100%);
-  z-index: 999;
-  opacity: 0.9;
+.ham-menu.active span:nth-child(1) {
+  top: 50%;
+  transform: rotate(45deg);
 }
 
-.off-screen-menu.active {
-  right: 0;
-  transform: translateX(0);
+.ham-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.ham-menu.active span:nth-child(3) {
+  top: 50%;
+  transform: rotate(-45deg);
+}
+
+.off-screen-menu {
+  display: none;
 }
 
 .off-screen-list {
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px;
+  padding-top: 40px;
+}
+
+.mobile-nav-item {
+  text-decoration: none;
+  color: hsl(0, 0%, 100%);
+  font-size: 20px;
+  padding: 6px 10px;
+  background-color: hsl(207, 65%, 30%);
+  border-radius: 5px;
+  width: 100%;
+}
+
+.mobile-nav-item:hover {
+  background-color: hsl(207, 65%, 40%);
+}
+
+.nav-social-media-holder {
+  width: 95%;
+  justify-content: flex-start !important;
+}
+
+.nav-icon {
+  color: hsl(0, 0%, 100%);
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.off-screen-logo {
+  max-width: 44px;
+  width: 100%;
 }
 
 @media screen and (max-width: 1200px) {
   .header-holder {
     width: 95%;
   }
+}
 
-  @media screen and (max-width: 800px) {
-    .nav-holder {
-      display: none;
-    }
+@media screen and (max-width: 800px) {
+  .nav-holder {
+    display: none;
+  }
 
-    .btn-nav-holder {
-      max-width: 150px;
-    }
+  .btn-nav-holder {
+    max-width: 150px;
+  }
 
-    .mobile-nav {
-      display: block;
-    }
+  .mobile-nav {
+    display: block;
+  }
+
+  .off-screen-menu {
+    background-color: hsl(207, 66%, 22%);
+    width: 100%;
+    position: absolute; /* 🚀 sada ide ispod headera */
+    top: 100%; /* odmah ispod headera */
+    left: 0;
+    height: 0; /* zatvoren */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 35px;
+    transition: height 0.4s ease;
+    z-index: 500; /* manji od headera */
+    box-shadow: 0px 12px 10px hsl(207, 66%, 40%);
+  }
+
+  .off-screen-menu.active {
+    height: 100vh; /* ili koliko želiš da se otvori */
   }
 }
