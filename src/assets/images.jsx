@@ -31,6 +31,7 @@ import drinkTwo from "./drink-two.png";
 import drinkThree from "./drink-three.png";
 import drinkFour from "./drink-four.png";
 import drinkFive from "./drink-five.png";
+import specialImg from "./special-img.png";
 
 const Logo = ({ className }) => {
   return <img src={logo} alt="alpine haus logo" className={className} />;
@@ -226,6 +227,10 @@ const DrinkFive = ({ className }) => {
   );
 };
 
+const SpecialImg = ({ className }) => {
+  return <img src={specialImg} alt="white plate" className={className} />;
+};
+
 export {
   Logo,
   HeroImage,
@@ -260,4 +265,5 @@ export {
   DrinkThree,
   DrinkFour,
   DrinkFive,
+  SpecialImg,
 };

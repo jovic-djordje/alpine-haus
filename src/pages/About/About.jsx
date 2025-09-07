@@ -45,7 +45,7 @@ const About = () => {
               atmosphere for all.
             </p>
             <div className="about-btn-holder about-btn-holder-about-page">
-              <Link className="specials-link">
+              <Link to="/specials" className="specials-link">
                 <button className=" about-btn about-contact-btn about-page-btn">
                   Today's Specials
                   <IoIosArrowForward className="about-btn-icon" />
