@@ -121,7 +121,10 @@ const Reserve = () => {
       </section>
 
       <section className="contact-section reserve-contact-section">
-        <div className="about-page-contact-section-holder section-holder reserve-contact-section-holder ">
+        <div
+          className="about-page-contact-section-holder section-holder reserve-contact-section-holder "
+          id="reserve"
+        >
           <div className="form-text-holder reserve-form-text-holder ">
             <h4>Reservation</h4>
             <h2 className="form-title">

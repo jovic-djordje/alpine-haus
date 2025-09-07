@@ -55,6 +55,7 @@ footer {
 .footer-icon {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .footer-logo {
@@ -74,7 +75,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 8px;
+  gap: 12px;
 }
 
 .hours {
@@ -82,7 +83,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 8px;
+  gap: 12px;
 }
 
 .hours span {

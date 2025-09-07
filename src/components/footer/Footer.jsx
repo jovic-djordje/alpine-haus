@@ -10,7 +10,11 @@ const Footer = () => {
       <div className="footer-holder">
         <div className="footer-width-holder">
           <div className="footer-left-side">
-            <Logo className="footer-logo" />
+            <Link to="/#top">
+              {" "}
+              <Logo className="footer-logo" />
+            </Link>
+
             <div className="footer-info-holder">
               <h5>Address:</h5>
               <p>Level 1, 12 sample st, sydney </p>
@@ -32,10 +36,12 @@ const Footer = () => {
               <Link to="/menu" className="footer-link">
                 View menu
               </Link>
-              <Link to="contact" className="footer-link">
+              <Link to="/about#contact" className="footer-link">
                 Contact us
               </Link>
-              <Link className="footer-link">Reserve</Link>
+              <Link to="/reserve" className="footer-link">
+                Reserve
+              </Link>
               <Link to="/about" className="footer-link">
                 About us
               </Link>
