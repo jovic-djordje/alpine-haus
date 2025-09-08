@@ -34,8 +34,11 @@ import {
   SideMealThree,
   SideMealTwo,
 } from "../../assets/images";
+import { useState } from "react";
 
 const Menu = () => {
+  const [filter, setFilter] = useState("all");
+
   const app = [
     {
       id: 1,
@@ -239,23 +242,29 @@ const Menu = () => {
             dishes crafted with love and authenticity.
           </p>
           <div className="menu-food-nav">
-            <div className="menu-icon-holder">
+            <div className="menu-icon-holder" onClick={() => setFilter("all")}>
               <GiKnifeFork className="menu-icon" />
               <span className="label">All</span>
             </div>
-            <div className="menu-icon-holder">
+            <div className="menu-icon-holder" onClick={() => setFilter("app")}>
               <GiCheeseWedge className="menu-icon" />
               <span className="label">Appetizers</span>
             </div>
-            <div className="menu-icon-holder">
+            <div
+              className="menu-icon-holder"
+              onClick={() => setFilter("sides")}
+            >
               <GiSlicedBread className="menu-icon" />
               <span className="label">Sides</span>
             </div>
-            <div className="menu-icon-holder">
+            <div
+              className="menu-icon-holder"
+              onClick={() => setFilter("salads")}
+            >
               <GiTomato className="menu-icon" />
               <span className="label">Salads</span>
             </div>
-            <div className="menu-icon-holder">
+            <div className="menu-icon-holder" onClick={() => setFilter("main")}>
               <GiMeat className="menu-icon" />
               <span className="label">Main</span>
             </div>
@@ -263,7 +272,10 @@ const Menu = () => {
               <GiLadle className="menu-icon" />
               <span className="label">Soups</span>
             </div> */}
-            <div className="menu-icon-holder">
+            <div
+              className="menu-icon-holder"
+              onClick={() => setFilter("drink")}
+            >
               <GiBeerBottle className="menu-icon" />
               <div className="label">Drinks</div>
             </div>
@@ -271,93 +283,115 @@ const Menu = () => {
         </div>
       </section>
 
-      <section className="appetizers-section meal-sections">
-        <div className="appetizers-section-holder section-holder meal-sections-holder">
-          <h2 className="appetizers-title meal-section-title">Appetizers</h2>
-          <div className="meal-holder">
-            {app.map((meal) => (
-              <div className="app-meal-cart meal-cart" key={meal.id}>
-                <span className="app-meal-price meal-price">{meal.price}</span>
-                {meal.image}
-                <h3 className="app-meal-title meal-title">{meal.title}</h3>
-                <p className="app-meal-text meal-text">{meal.text}</p>
-              </div>
-            ))}
+      {(filter === "all" || filter === "app") && (
+        <section className="appetizers-section meal-sections">
+          <div className="appetizers-section-holder section-holder meal-sections-holder">
+            <h2 className="appetizers-title meal-section-title">Appetizers</h2>
+            <div className="meal-holder">
+              {app.map((meal) => (
+                <div className="app-meal-cart meal-cart" key={meal.id}>
+                  <span className="app-meal-price meal-price">
+                    {meal.price}
+                  </span>
+                  {meal.image}
+                  <h3 className="app-meal-title meal-title">{meal.title}</h3>
+                  <p className="app-meal-text meal-text">{meal.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section className="sides-section meal-sections">
-        <div className="sides-section-holder section-holder meal-sections-holder">
-          <h2 className="sides-title meal-section-title">Sides</h2>
-          <div className="meal-holder">
-            {sides.map((meal) => (
-              <div className="app-meal-cart meal-cart" key={meal.id}>
-                <span className="app-meal-price meal-price">{meal.price}</span>
-                {meal.image}
+      {(filter === "all" || filter === "sides") && (
+        <section className="sides-section meal-sections">
+          <div className="sides-section-holder section-holder meal-sections-holder">
+            <h2 className="sides-title meal-section-title">Sides</h2>
+            <div className="meal-holder">
+              {sides.map((meal) => (
+                <div className="app-meal-cart meal-cart" key={meal.id}>
+                  <span className="app-meal-price meal-price">
+                    {meal.price}
+                  </span>
+                  {meal.image}
 
-                <h3 className="app-meal-title meal-title">{meal.title}</h3>
+                  <h3 className="app-meal-title meal-title">{meal.title}</h3>
 
-                <p className="app-meal-text meal-text">{meal.text}</p>
-              </div>
-            ))}
+                  <p className="app-meal-text meal-text">{meal.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section className="salads-section meal-sections">
-        <div className="salads-section-holder section-holder meal-sections-holder">
-          <h2 className="salads-title meal-section-title">Salads</h2>
-          <div className="meal-holder">
-            {salads.map((meal) => (
-              <div className="app-meal-cart meal-cart" key={meal.id}>
-                <span className="app-meal-price meal-price">{meal.price}</span>
-                {meal.image}
+      {(filter === "all" || filter === "salads") && (
+        <section className="salads-section meal-sections">
+          <div className="salads-section-holder section-holder meal-sections-holder">
+            <h2 className="salads-title meal-section-title">Salads</h2>
+            <div className="meal-holder">
+              {salads.map((meal) => (
+                <div className="app-meal-cart meal-cart" key={meal.id}>
+                  <span className="app-meal-price meal-price">
+                    {meal.price}
+                  </span>
+                  {meal.image}
 
-                <h3 className="app-meal-title meal-title">{meal.title}</h3>
+                  <h3 className="app-meal-title meal-title">{meal.title}</h3>
 
-                <p className="app-meal-text meal-text">{meal.text}</p>
-              </div>
-            ))}
+                  <p className="app-meal-text meal-text">{meal.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section className="main-course-section meal-sections">
-        <div className="main-course-section-holder section-holder meal-sections-holder">
-          <h2 className="main-course-title meal-section-title">Main Course</h2>
-          <div className="meal-holder">
-            {main.map((meal) => (
-              <div className="app-meal-cart meal-cart" key={meal.id}>
-                <span className="app-meal-price meal-price">{meal.price}</span>
-                {meal.image}
+      {(filter === "all" || filter === "main") && (
+        <section className="main-course-section meal-sections">
+          <div className="main-course-section-holder section-holder meal-sections-holder">
+            <h2 className="main-course-title meal-section-title">
+              Main Course
+            </h2>
+            <div className="meal-holder">
+              {main.map((meal) => (
+                <div className="app-meal-cart meal-cart" key={meal.id}>
+                  <span className="app-meal-price meal-price">
+                    {meal.price}
+                  </span>
+                  {meal.image}
 
-                <h3 className="app-meal-title meal-title">{meal.title}</h3>
+                  <h3 className="app-meal-title meal-title">{meal.title}</h3>
 
-                <p className="app-meal-text meal-text">{meal.text}</p>
-              </div>
-            ))}
+                  <p className="app-meal-text meal-text">{meal.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      <section className="drink-section meal-sections">
-        <div className="drink-section-holder section-holder meal-sections-holder">
-          <h2 className="drink-title meal-section-title">Drinks</h2>
-          <div className="meal-holder">
-            {drinks.map((meal) => (
-              <div className="app-meal-cart meal-cart" key={meal.id}>
-                <span className="app-meal-price meal-price">{meal.price}</span>
-                {meal.image}
+      {(filter === "all" || filter === "drink") && (
+        <section className="drink-section meal-sections">
+          <div className="drink-section-holder section-holder meal-sections-holder">
+            <h2 className="drink-title meal-section-title">Drinks</h2>
+            <div className="meal-holder">
+              {drinks.map((meal) => (
+                <div className="app-meal-cart meal-cart" key={meal.id}>
+                  <span className="app-meal-price meal-price">
+                    {meal.price}
+                  </span>
+                  {meal.image}
 
-                <h3 className="app-meal-title meal-title">{meal.title}</h3>
+                  <h3 className="app-meal-title meal-title">{meal.title}</h3>
 
-                <p className="app-meal-text meal-text">{meal.text}</p>
-              </div>
-            ))}
+                  <p className="app-meal-text meal-text">{meal.text}</p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </main>
   );
 };
