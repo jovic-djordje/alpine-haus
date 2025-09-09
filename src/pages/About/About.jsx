@@ -5,15 +5,61 @@ import { FiMail } from "react-icons/fi";
 import { FiMapPin } from "react-icons/fi";
 import { RestaurantInterior } from "../../assets/images";
 
+import { useState } from "react";
 import "./about.style.css";
 
 const About = () => {
+  const [errors, setErrors] = useState({});
+  const [input, setInput] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setInput({
+      ...input,
+      [name]: value,
+    });
+
+    //kada korisnik krene kucati greska se brise
+    setErrors({
+      ...errors,
+      [name]: "",
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    let newErrors = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    //Email
+    if (!input.email.trim()) {
+      newErrors.email = "This field is required";
+    } else if (!emailRegex.test(input.email)) {
+      newErrors.email = "Enter a valid email";
+    }
+
+    //Name
+    if (!input.name.trim()) newErrors.name = "This field is required";
+
+    //Message
+    if (!input.message.trim()) {
+      newErrors.message = "This field is required";
+    }
+
+    setErrors(newErrors);
+  };
+
   return (
     <main>
       <section className="about-page-hero-section">
         <div className="hero-section-holder">
           <h4>Authenticity</h4>
-          <h1 className="hero-title">Experience alpine hospitality</h1>
+          <h1 className=" hero-title ">Experience alpine hospitality</h1>
           <p className="hero-text">
             Discover the warmth of <span>austrian-german</span> in a cozy,
             inviting atmosphere at <span>alpine haus</span>
@@ -22,8 +68,8 @@ const About = () => {
             <Link to="/menu" className="hero-link">
               <button className=" hero-btn hero-menu-btn">View Menu</button>
             </Link>
-            <Link className="hero-link">
-              <button className="hero-btn about-page-hero-btn">Reserve</button>
+            <Link to="/reserve" className="hero-link">
+              <button className="hero-btn about-page-hero-btn ">Reserve</button>
             </Link>
           </div>
         </div>
@@ -86,23 +132,49 @@ const About = () => {
           </div>
 
           <div className="form-holder">
-            <form action="">
+            <form action="" onSubmit={handleSubmit}>
               <div className="inputs-holder">
-                <label htmlFor="name-input">Name</label>
-                <input type="text" id="name-input" />
+                <div className="label-holder">
+                  <label htmlFor="name-input">Name</label>
+                  {errors.name && <p>{errors.name}</p>}
+                </div>
+                <input
+                  type="text"
+                  id="name-input"
+                  name="name"
+                  onChange={handleInput}
+                  value={input.name}
+                  style={{ outline: errors.name ? "1px solid red" : "none" }}
+                />
               </div>
 
               <div className="inputs-holder">
-                <label htmlFor="email-input">Email</label>
-                <input type="email" id="email-input" />
+                <div className="label-holder">
+                  <label htmlFor="email-input">Email</label>
+                  {errors.email && <p>{errors.email}</p>}
+                </div>
+                <input
+                  type="text"
+                  id="email-input"
+                  name="email"
+                  onChange={handleInput}
+                  value={input.email}
+                  style={{ outline: errors.email ? "1px solid red" : "none" }}
+                />
               </div>
 
               <div className="inputs-holder">
-                <label htmlFor="message-input">Message</label>
+                <div className="label-holder">
+                  <label htmlFor="message-input">Message</label>
+                  {errors.message && <p>{errors.message}</p>}
+                </div>
                 <textarea
-                  name="text-area"
+                  name="message"
                   id="message-input"
                   placeholder="Type your message..."
+                  value={input.message}
+                  onChange={handleInput}
+                  style={{ outline: errors.message ? "1px solid red" : "none" }}
                 ></textarea>
               </div>
               <button className="form-btn">Submit</button>
