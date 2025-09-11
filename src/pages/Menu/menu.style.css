@@ -196,6 +196,10 @@
   .meal-cart {
     max-width: 280px;
   }
+
+  .meal-sections-holder {
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 520px) {
@@ -219,9 +223,5 @@
 
   .meal-section-title {
     font-size: 35px;
-  }
-
-  .meal-holder {
-    grid-template-columns: repeat(1, 1fr);
   }
 }
