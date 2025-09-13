@@ -173,7 +173,7 @@ footer {
 
   .attribute {
     flex-direction: column-reverse;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
   }
 }
