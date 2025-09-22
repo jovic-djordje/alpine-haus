@@ -102,7 +102,7 @@ const Home = () => {
               </Link>
             </div>
           </div>
-          <AboutImage className="about-section-img" />
+          <AboutImage className="about-section-img-home-page" />
         </div>
       </section>
 

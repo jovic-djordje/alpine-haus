@@ -17,12 +17,23 @@ const Footer = () => {
 
             <div className="footer-info-holder">
               <h5>Address:</h5>
-              <p>351 Market St, Basalt, CO 81621, United States</p>
+              <p>
+                <a
+                  href="https://www.google.com/maps/place/Alpine+House/@39.3857594,-107.0827341,143m/data=!3m1!1e3!4m12!1m5!3m4!2zMznCsDIzJzA4LjkiTiAxMDfCsDA0JzU4LjEiVw!8m2!3d39.3857921!4d-107.0828019!3m5!1s0x8741b361c6ac75fb:0x969c0c82d693cee2!8m2!3d39.3856694!4d-107.0826002!16s%2Fg%2F11x_fn3_1h?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  351 Market St, Basalt, CO 81621, United States
+                </a>
+              </p>
             </div>
 
             <div className="footer-info-holder">
               <h5>Contact:</h5>
-              <p>+1 970-279-5107 | info@alpinehouse.com</p>
+              <p>
+                <a href="tel:+19702795107">+1 970-279-5107</a> |
+                info@alpinehouse.com
+              </p>
             </div>
 
             <div className="footer-social-media-holder">
