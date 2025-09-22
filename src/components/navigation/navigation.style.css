@@ -195,6 +195,11 @@ body.menu-open {
   font-size: 20px;
 }
 
+.nav-info-holder a {
+  text-decoration: none;
+  color: hsl(0, 0%, 100%);
+}
+
 @media screen and (max-width: 1200px) {
   .header-holder {
     width: 95%;

@@ -339,6 +339,10 @@
   line-height: 1.7;
 }
 
+.reserve-section-text span {
+  text-transform: capitalize;
+}
+
 .reserve-link {
   max-width: 100px;
   width: 100%;

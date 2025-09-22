@@ -39,20 +39,20 @@ const Home = () => {
     {
       id: 1,
       icon: <FiMail className="contact-section-icon" />,
-      info: "info@alpinehaus.com",
+      info: "info@alpinehouse.com",
       text: "Reach out for private dining, events, or inquiries",
     },
     {
       id: 2,
       icon: <FiSmartphone className="contact-section-icon" />,
-      info: "(+123) 456 789",
+      info: "+1 970-279-5107",
       text: "We are here to arrange your reservation with care.",
     },
 
     {
       id: 3,
       icon: <FiMapPin className="contact-section-icon" />,
-      info: "Level 1, 12 sample st, sydney",
+      info: "351 Market St, Basalt, CO 81621, United States",
       text: "Join us at our address and indulge in a refined experience.",
     },
   ];
@@ -82,10 +82,10 @@ const Home = () => {
           <div className="about-section-text-holder">
             <h2 className="about-section-title">
               Experience authentic alpine hospitality <span>at</span> alpine
-              haus
+              house
             </h2>
             <p className="about-section-text">
-              At <span>alpine haus</span>, we celebrate our rich{" "}
+              At <span>alpine house</span>, we celebrate our rich{" "}
               <span>Austrian</span> heritage through every dish we serve. Our
               inviting atmosphere and friendly staff ensure that every visit
               feels like coming home.
@@ -114,7 +114,7 @@ const Home = () => {
               Taste <span>the</span> heart <span>of</span> alpine cuisine
             </h2>
             <p className="features-section-text">
-              At <span>alpine haus</span>, we bring you the essence of
+              At <span>alpine house</span>, we bring you the essence of
               traditional <span>austrian-german</span> dishes, crafted with love
               and authenticity. Join us for a culinary journey that warms the
               heart and soul.
