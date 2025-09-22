@@ -4,7 +4,7 @@ import aboutImage from "./about-section-image.png";
 import featuresFirstDish from "./dish-one.png";
 import featuresSecondDish from "./dish-two.png";
 import featuresThirdDish from "./dish-three.png";
-import restaurantInterior from "./about-page-about-section-img.png";
+import restaurantInterior from "./about-page-about-section-img.jpg";
 import appMealOne from "./appetizer-meal-one.png";
 import appMealTwo from "./appetizer-meal-two.png";
 import appMealThree from "./appetizer-meal-three.png";
