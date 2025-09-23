@@ -148,6 +148,91 @@
   font-size: 18px;
 }
 
+.menu-disclaimer {
+  background-color: hsl(207, 66%, 22%);
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+}
+
+.menu-disclaimer-holder {
+  padding: 0px !important;
+}
+
+.wine-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: 100%;
+}
+
+.wine-by-glass {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.wine-by-glas-title {
+  text-transform: capitalize;
+  font-family: "Bree Serif";
+  margin-bottom: 8px;
+  color: hsl(0, 0%, 100%);
+}
+
+.wine-by-glas-title span {
+  text-transform: lowercase;
+  font-size: 12px;
+  color: hsl(51, 100%, 50%);
+}
+
+.white-wine-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.red-wine-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.wine-name-holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 450px;
+  width: 100%;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.wine-name {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 12px;
+}
+
+.wine-price {
+  color: hsl(51, 100%, 50%);
+  margin-bottom: 12px;
+}
+
+.wine-list-btn {
+  background: transparent;
+  border: none;
+  align-self: end;
+  font-family: "Bree Serif";
+  cursor: pointer;
+  color: #f2f2f2;
+  font-size: 15px;
+}
+
 @media screen and (max-width: 1200px) {
   .meal-holder {
     grid-template-columns: repeat(3, 1fr);
@@ -186,6 +271,14 @@
   .meal-text {
     font-size: 14px;
   }
+
+  .wine-name-holder {
+    max-width: 350px;
+  }
+
+  .wine-name {
+    font-size: 14px;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -199,6 +292,39 @@
 
   .meal-sections-holder {
     align-items: center;
+  }
+
+  .wine-name-holder {
+    max-width: 800px;
+  }
+
+  .wine-name {
+    font-size: 15px;
+  }
+
+  .wine-price {
+    font-size: 15px;
+  }
+
+  .wine-wrapper {
+    flex-direction: column;
+    gap: 70px;
+  }
+
+  .wine-by-glass {
+    width: 100%;
+  }
+
+  .wine-by-glas-title {
+    margin-bottom: 0;
+  }
+
+  .white-wine-section {
+    width: 100%;
+  }
+
+  .red-wine-section {
+    width: 100%;
   }
 }
 
@@ -223,5 +349,14 @@
 
   .meal-section-title {
     font-size: 35px;
+  }
+
+  .meal-text {
+    font-size: 9px;
+    line-height: 1.7;
+  }
+
+  .wine-name {
+    font-size: 14px;
   }
 }
