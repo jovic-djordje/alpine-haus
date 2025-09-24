@@ -63,11 +63,7 @@ const FeaturesFirstDish = ({ className }) => {
 
 const FeaturesSecondDish = ({ className }) => {
   return (
-    <img
-      src={featuresSecondDish}
-      alt="photo of Sauerbraten"
-      className={className}
-    />
+    <img src={featuresSecondDish} alt="photo of Wings" className={className} />
   );
 };
 
@@ -75,7 +71,7 @@ const FeaturesThirdDish = ({ className }) => {
   return (
     <img
       src={featuresThirdDish}
-      alt="photo of Apfelstrudel"
+      alt="photo of Bavarian pretzel"
       className={className}
     />
   );

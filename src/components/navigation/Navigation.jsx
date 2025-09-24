@@ -130,7 +130,12 @@ const Navigation = () => {
 
           <div className="nav-info-holder">
             <h5>Contact:</h5>
-            <a href="tel:+19702795107">+1 970-279-5107</a>
+            <p>
+              <a href="tel:+19702795107">+1 970-279-5107</a> |{" "}
+              <a href="mailto:alpinehouse2025@gmail.com">
+                alpinehouse2025@gmail.com
+              </a>
+            </p>
           </div>
         </div>
       </div>

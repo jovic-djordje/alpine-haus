@@ -117,8 +117,14 @@ const About = () => {
             </p>
             <div className="contact-info-holder">
               <p className="contact-info ">
-                <FiMail />
-                info@alpinehouse.com
+
+                <a href="mailto:alpinehouse2025@gmail.com">
+                  {" "}
+                  <FiMail /> alpinehouse2025@gmail.com
+                </a>
+
+            
+
               </p>
               <p className="contact-info">
                 <a href="tel:+19702795107">

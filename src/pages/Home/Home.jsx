@@ -26,7 +26,7 @@ const Home = () => {
     {
       id: 2,
       image: <FeaturesSecondDish className="features-img" />,
-      text: "Oktoberfest Chicken",
+      text: "Wings",
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ const Home = () => {
     {
       id: 1,
       icon: <FiMail className="contact-section-icon" />,
-      info: "info@alpinehouse.com",
+      info: "alpinehouse2025@gmail.com",
       text: "Reach out for private dining, events, or inquiries",
     },
     {
