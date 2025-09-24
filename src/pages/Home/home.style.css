@@ -262,6 +262,12 @@
   border-radius: 20px;
   aspect-ratio: 3/2;
   object-fit: cover;
+  transition: all 0.3s;
+}
+
+.features-img:hover {
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 .features-card-text {
@@ -406,6 +412,7 @@
 .contact-section-card-title {
   font-family: "Bree Serif";
   font-size: 20px;
+  word-break: break-all;
 }
 
 @media screen and (max-width: 1200px) {

@@ -135,8 +135,10 @@ const Reserve = () => {
             </p>
             <div className="contact-info-holder">
               <p className="contact-info ">
-                <FiMail />
-                info@alpinehaus.com
+                <a href="mailto:alpinehouse2025@gmail.com">
+                  {" "}
+                  <FiMail /> alpinehouse2025@gmail.com
+                </a>
               </p>
               <p className="contact-info ">
                 <FiSmartphone /> 1800 123 4567
