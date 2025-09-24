@@ -62,7 +62,7 @@ const About = () => {
           <h1 className=" hero-title ">Experience alpine hospitality</h1>
           <p className="hero-text">
             Discover the warmth of <span>austrian-german</span> in a cozy,
-            inviting atmosphere at <span>alpine haus</span>
+            inviting atmosphere at <span>alpine house</span>
           </p>
           <div className="hero-btn-holder">
             <Link to="/menu" className="hero-link">
@@ -83,7 +83,7 @@ const About = () => {
               Passion <span>for</span> authentic flavors
             </h2>
             <p className="about-section-text">
-              At <span>alpine haus</span>, we celebrate the rich traditions of{" "}
+              At <span>alpine house</span>, we celebrate the rich traditions of{" "}
               {""}
               <span>austrian-german</span> cuisine, bringing authentic flavors
               to life. Our founders' passion for these culinary delights is
@@ -117,18 +117,30 @@ const About = () => {
             </p>
             <div className="contact-info-holder">
               <p className="contact-info ">
+
                 <a href="mailto:alpinehouse2025@gmail.com">
                   {" "}
                   <FiMail /> alpinehouse2025@gmail.com
                 </a>
+
+            
+
+              </p>
+              <p className="contact-info">
+                <a href="tel:+19702795107">
+                  {" "}
+                  <FiSmartphone /> +1 970-279-5107
+                </a>
               </p>
               <p className="contact-info ">
-                <FiSmartphone /> 1800 123 4567
-              </p>
-              <p className="contact-info ">
-                {" "}
-                <FiMapPin />
-                Level 1, 12 Sample St, Sydney NSW 2000
+                <a
+                  href="https://www.google.com/maps/place/Alpine+House/@39.3857594,-107.0827341,143m/data=!3m1!1e3!4m12!1m5!3m4!2zMznCsDIzJzA4LjkiTiAxMDfCsDA0JzU4LjEiVw!8m2!3d39.3857921!4d-107.0828019!3m5!1s0x8741b361c6ac75fb:0x969c0c82d693cee2!8m2!3d39.3856694!4d-107.0826002!16s%2Fg%2F11x_fn3_1h?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FiMapPin />
+                  351 Market St, Basalt, CO 81621, United States
+                </a>
               </p>
             </div>
           </div>
@@ -190,17 +202,17 @@ const About = () => {
           <div className="location-text-holder">
             <h2 className="location-section-title">Location</h2>
             <p className="location-section-text">
-              Visit us at our cozy location in <span>sydney</span>
+              Visit us at our cozy location in <span>basalt, colorado</span>
             </p>
           </div>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.2942384838955!2d151.20929931521052!3d-33.86881658065781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae3f7b0c7f5d%3A0x1234567890abcdef!2sAlpine%20Haus!5e0!3m2!1sen!2sau!4v1234567890123"
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7048.138706225096!2d-107.08626702123996!3d39.38250323053942!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8741b361c6ac75fb%3A0x969c0c82d693cee2!2sAlpine%20House!5e1!3m2!1sen!2sba!4v1758527296596!5m2!1sen!2sba"
             width="100%"
             height="400"
-            allowFullScreen={true} // camelCase i boolean
+            allowFullScreen={true}
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade" // camelCase
-            title="Alpine Haus Location" // Dodaj title za accessibility
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Alpine House Location"
           ></iframe>
         </div>
       </section>

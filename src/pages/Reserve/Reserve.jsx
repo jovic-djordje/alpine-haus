@@ -114,7 +114,7 @@ const Reserve = () => {
         <div className="reserve-hero-holder section-holder">
           <h1 className="reserve-hero-title">Book your table</h1>
           <p className="reserve-hero-text">
-            Join us at <span>alpine haus</span> for an unforgettable dining
+            Join us at <span>alpine house</span> for an unforgettable dining
             experience filled with authentic flavors and warmth.
           </p>
         </div>
@@ -135,18 +135,30 @@ const Reserve = () => {
             </p>
             <div className="contact-info-holder">
               <p className="contact-info ">
+
                 <a href="mailto:alpinehouse2025@gmail.com">
                   {" "}
                   <FiMail /> alpinehouse2025@gmail.com
                 </a>
+
+             
+
               </p>
               <p className="contact-info ">
-                <FiSmartphone /> 1800 123 4567
+                <a href="tel:+19702795107">
+                  {" "}
+                  <FiSmartphone /> +1 970-279-5107{" "}
+                </a>
               </p>
               <p className="contact-info ">
-                {" "}
-                <FiMapPin />
-                Level 1, 12 Sample St, Sydney NSW 2000
+                <a
+                  href="https://www.google.com/maps/place/Alpine+House/@39.3857594,-107.0827341,143m/data=!3m1!1e3!4m12!1m5!3m4!2zMznCsDIzJzA4LjkiTiAxMDfCsDA0JzU4LjEiVw!8m2!3d39.3857921!4d-107.0828019!3m5!1s0x8741b361c6ac75fb:0x969c0c82d693cee2!8m2!3d39.3856694!4d-107.0826002!16s%2Fg%2F11x_fn3_1h?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FiMapPin />
+                  351 Market St, Basalt, CO 81621, United States
+                </a>
               </p>
             </div>
           </div>

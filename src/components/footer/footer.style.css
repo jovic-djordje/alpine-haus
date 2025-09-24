@@ -54,6 +54,11 @@ footer {
   text-decoration: none;
 }
 
+.footer-info-holder a {
+  text-decoration: none;
+  color: hsl(0, 0%, 100%);
+}
+
 .footer-social-media-holder {
   display: flex;
   justify-content: center;

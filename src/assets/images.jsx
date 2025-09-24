@@ -4,13 +4,14 @@ import aboutImage from "./about-section-image.png";
 import featuresFirstDish from "./dish-one.png";
 import featuresSecondDish from "./dish-two.png";
 import featuresThirdDish from "./dish-three.png";
-import restaurantInterior from "./about-page-about-section-img.png";
+import restaurantInterior from "./about-page-about-section-img.jpg";
 import appMealOne from "./appetizer-meal-one.png";
 import appMealTwo from "./appetizer-meal-two.png";
 import appMealThree from "./appetizer-meal-three.png";
 import appMealFour from "./appetizer-meal-four.png";
 import appMealFive from "./appetizer-meal-five.png";
 import appMealSix from "./appetizer-meal-six.png";
+import appMealSeven from "./appetizer-meal-seven.png";
 import sideMealOne from "./side-meal-one.png";
 import sideMealTwo from "./side-meal-two.png";
 import sideMealThree from "./side-meal-three.png";
@@ -21,16 +22,15 @@ import saladOne from "./salad-one.png";
 import saladTwo from "./salad-two.png";
 import saladThree from "./salad-three.png";
 import saladFour from "./salad-four.png";
+import saladFive from "./salad-five.png";
 import mainMealOne from "./main-meal-one.png";
 import mainMealTwo from "./main-meal-two.png";
 import mainMealThree from "./main-meal-three.png";
 import mainMealFour from "./main-meal-four.png";
 import mainMealFive from "./main-meal-five.png";
-import drinkOne from "./drink-one.png";
-import drinkTwo from "./drink-two.png";
-import drinkThree from "./drink-three.png";
-import drinkFour from "./drink-four.png";
-import drinkFive from "./drink-five.png";
+import mainMealSix from "./main-meal-six.png";
+import mainMealSeven from "./main-meal-seven.png";
+import mainMealEight from "./main-meal-eight.png";
 import specialImg from "./special-img.png";
 
 const Logo = ({ className }) => {
@@ -96,29 +96,31 @@ const AppMealTwo = ({ className }) => {
 };
 
 const AppMealThree = ({ className }) => {
-  return <img src={appMealThree} alt="Sausage Sampler" className={className} />;
+  return <img src={appMealThree} alt="Deviled Eggs" className={className} />;
 };
 
 const AppMealFour = ({ className }) => {
-  return <img src={appMealFour} alt="Tete De Moine" className={className} />;
+  return <img src={appMealFour} alt="Wings" className={className} />;
 };
 
 const AppMealFive = ({ className }) => {
-  return <img src={appMealFive} alt="Wings" className={className} />;
+  return <img src={appMealFive} alt="Calamari" className={className} />;
 };
 
 const AppMealSix = ({ className }) => {
-  return <img src={appMealSix} alt="Pâté Board" className={className} />;
+  return <img src={appMealSix} alt="Shrimp Scampi" className={className} />;
+};
+
+const AppMealSeven = ({ className }) => {
+  return <img src={appMealSeven} alt="Seafood Salad " className={className} />;
 };
 
 const SideMealOne = ({ className }) => {
-  return (
-    <img src={sideMealOne} alt="Grilled Asparagus" className={className} />
-  );
+  return <img src={sideMealOne} alt="Crushed Potato" className={className} />;
 };
 
 const SideMealTwo = ({ className }) => {
-  return <img src={sideMealTwo} alt="Potato Salad" className={className} />;
+  return <img src={sideMealTwo} alt="Mix Veggies" className={className} />;
 };
 
 const SideMealThree = ({ className }) => {
@@ -142,15 +144,23 @@ const SaladOne = ({ className }) => {
 };
 
 const SaladTwo = ({ className }) => {
-  return <img src={saladTwo} alt="Mixed Greens" className={className} />;
+  return (
+    <img src={saladTwo} alt="Signature Alpine Salad" className={className} />
+  );
 };
 
 const SaladThree = ({ className }) => {
-  return <img src={saladThree} alt="Goat Cheese" className={className} />;
+  return (
+    <img src={saladThree} alt="Wild Arugula Salad" className={className} />
+  );
 };
 
 const SaladFour = ({ className }) => {
-  return <img src={saladFour} alt="Golden Beet & Pear" className={className} />;
+  return <img src={saladFour} alt="Greek Salad" className={className} />;
+};
+
+const SaladFive = ({ className }) => {
+  return <img src={saladFive} alt="Caprese Salad" className={className} />;
 };
 
 const MainMealOne = ({ className }) => {
@@ -163,63 +173,37 @@ const MainMealTwo = ({ className }) => {
 
 const MainMealThree = ({ className }) => {
   return (
-    <img src={mainMealThree} alt="Oktoberfest Chicken" className={className} />
+    <img src={mainMealThree} alt="Sausage Sampler" className={className} />
   );
 };
 
 const MainMealFour = ({ className }) => {
-  return (
-    <img src={mainMealFour} alt="Veal Jager Goulash" className={className} />
-  );
+  return <img src={mainMealFour} alt="Alpine Burger" className={className} />;
 };
 
 const MainMealFive = ({ className }) => {
-  return <img src={mainMealFive} alt="Mahi Mahi" className={className} />;
-};
-
-const DrinkOne = ({ className }) => {
   return (
     <img
-      src={drinkOne}
-      alt="Blueberry Lemonade Cocktail"
+      src={mainMealFive}
+      alt="Schweinshaxen- Pork Shank"
       className={className}
     />
   );
 };
 
-const DrinkTwo = ({ className }) => {
+const MainMealSix = ({ className }) => {
+  return <img src={mainMealSix} alt="12oz Ribeye" className={className} />;
+};
+
+const MainMealSeven = ({ className }) => {
   return (
-    <img src={drinkTwo} alt="Cranberry Paloma Cocktail" className={className} />
+    <img src={mainMealSeven} alt="Tenderloin Goulash" className={className} />
   );
 };
 
-const DrinkThree = ({ className }) => {
+const MainMealEight = ({ className }) => {
   return (
-    <img
-      src={drinkThree}
-      alt=" Highland Espresso Martin Cocktail"
-      className={className}
-    />
-  );
-};
-
-const DrinkFour = ({ className }) => {
-  return (
-    <img
-      src={drinkFour}
-      alt="Watermelon Mojito Cocktail"
-      className={className}
-    />
-  );
-};
-
-const DrinkFive = ({ className }) => {
-  return (
-    <img
-      src={drinkFive}
-      alt="Woody Old Fashioned Cocktail"
-      className={className}
-    />
+    <img src={mainMealEight} alt="Lobster Ravioli" className={className} />
   );
 };
 
@@ -241,6 +225,7 @@ export {
   AppMealFour,
   AppMealFive,
   AppMealSix,
+  AppMealSeven,
   SideMealOne,
   SideMealTwo,
   SideMealThree,
@@ -251,15 +236,14 @@ export {
   SaladTwo,
   SaladThree,
   SaladFour,
+  SaladFive,
   MainMealOne,
   MainMealTwo,
   MainMealThree,
   MainMealFour,
   MainMealFive,
-  DrinkOne,
-  DrinkTwo,
-  DrinkThree,
-  DrinkFour,
-  DrinkFive,
+  MainMealSix,
+  MainMealSeven,
+  MainMealEight,
   SpecialImg,
 };

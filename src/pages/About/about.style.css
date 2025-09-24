@@ -40,6 +40,15 @@
   justify-content: center;
 }
 
+.about-section-img {
+  max-width: 550px;
+  width: 100%;
+  border-radius: 30px;
+  max-height: 500px;
+  object-fit: cover;
+  height: 100%;
+}
+
 /* ABOUT PAGE - FORM SECTION */
 .about-page-contact-section-holder {
   display: flex;
@@ -92,7 +101,10 @@
 
 .contact-info a {
   text-decoration: none;
-  color: #000;
+
+
+  color: hsl(0, 0%, 0%);
+
   display: flex;
   justify-content: center;
   align-items: center;
