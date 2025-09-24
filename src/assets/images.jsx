@@ -1,6 +1,6 @@
 import logo from "./logo.png";
 import heroImage from "./hero-image.png";
-import aboutImage from "./about-section-image.png";
+import aboutImage from "./about-section-image.jpeg";
 import featuresFirstDish from "./dish-one.png";
 import featuresSecondDish from "./dish-two.png";
 import featuresThirdDish from "./dish-three.png";
