@@ -99,6 +99,22 @@ input[type="number"] {
   appearance: none;
 }
 
+.success-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.success-mess-title {
+  color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
 /* RESERVE PAGE - FAQ SECTION */
 .faq-section-holder {
   display: flex;
@@ -209,6 +225,14 @@ input[type="number"] {
   }
 
   .faq-answer {
+    font-size: 15px;
+  }
+
+  .success-mess-title {
+    font-size: 18px;
+  }
+
+  .success-mess-text {
     font-size: 15px;
   }
 }

@@ -3,8 +3,11 @@ import { FiMail } from "react-icons/fi";
 import { FiMapPin } from "react-icons/fi";
 import { HiOutlinePlus } from "react-icons/hi";
 import { HiOutlineMinus } from "react-icons/hi";
-import "./reserve.style.css";
+import { FaCheck } from "react-icons/fa6";
 import { useState } from "react";
+import { supabase } from "../../library/supabase.js";
+
+import "./reserve.style.css";
 
 const Reserve = () => {
   const [isOpen, setIsOpen] = useState(null);
@@ -12,72 +15,109 @@ const Reserve = () => {
     setIsOpen(isOpen === id ? null : id);
   };
 
-  const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
     name: "",
-    email: "",
     phone: "",
-    number: "",
+    email: "",
     date: "",
     time: "",
+    number: "",
+    "text-area": "",
   });
 
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  // Tvoja postojeća handleInput funkcija
   const handleInput = (e) => {
     const { name, value } = e.target;
-    setInput({
-      ...input,
+    setInput((prev) => ({
+      ...prev,
       [name]: value,
-    });
+    }));
 
-    //kada korisnik krene kucati greska se brise
-    setErrors({
-      ...errors,
-      [name]: "",
-    });
+    // Ukloni error kad korisnik počne da kuca
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // Validacija
+  const validateForm = () => {
+    const newErrors = {};
 
-    let newErrors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!input.name.trim()) newErrors.name = "Name is required";
+    if (!input.phone.trim()) newErrors.phone = "Phone number is required";
+    if (!input.email.trim()) newErrors.email = "Email is required";
+    if (!input.date) newErrors.date = "Date is required";
+    if (!input.time) newErrors.time = "Time is required";
+    if (!input.number || input.number < 1)
+      newErrors.number = "Number of people is required";
 
-    //Email
-    if (!input.email.trim()) {
-      newErrors.email = "This field is required";
-    } else if (!emailRegex.test(input.email)) {
-      newErrors.email = "Enter a valid email";
+    // Provjeri da li je datum u budućnosti
+    const selectedDate = new Date(input.date);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (selectedDate < today) {
+      newErrors.date = "Please select a future date";
     }
 
-    //Name
-    if (!input.name.trim()) newErrors.name = "This field is required";
-    //Phone
-    if (!input.phone.trim()) newErrors.phone = "This field is required";
-
-    //Number of People
-    if (!input.number.trim()) {
-      newErrors.number = "This field is required";
-    } else if (Number(input.number) > 10) {
-      newErrors.number = "Up to 10 people only";
+    // Email validacija (ako je unet)
+    if (input.email && !/\S+@\S+\.\S+/.test(input.email)) {
+      newErrors.email = "Please enter a valid email";
     }
-
-    //Date
-    if (!input.date.trim()) {
-      newErrors.date = "This field is required";
-    } else {
-      const currentDate = new Date(input.date);
-      const today = new Date();
-      today.setHours(0, 0, 0, 0);
-
-      if (currentDate < today) {
-        newErrors.date = "Date cannot be in the past";
-      }
-    }
-
-    //Time
-    if (!input.time.trim()) newErrors.time = "This field is required";
 
     setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    setLoading(true);
+    setSuccess(false);
+
+    try {
+      const { data, error } = await supabase.from("reservations").insert([
+        {
+          name: input.name,
+          phone: input.phone,
+          email: input.email || null,
+          reservation_date: input.date,
+          reservation_time: input.time,
+          number_of_people: parseInt(input.number),
+          special_requests: input["text-area"] || null,
+        },
+      ]);
+
+      if (error) throw error;
+
+      console.log("Reservation saved:", data);
+      setSuccess(true);
+
+      // Resetuj formu
+      setInput({
+        name: "",
+        phone: "",
+        email: "",
+        date: "",
+        time: "",
+        number: "",
+        "text-area": "",
+      });
+    } catch (error) {
+      console.error("Error saving reservation:", error);
+      setErrors({ general: "Something went wrong. Please try again." });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const faqs = [
@@ -135,14 +175,10 @@ const Reserve = () => {
             </p>
             <div className="contact-info-holder">
               <p className="contact-info ">
-
                 <a href="mailto:alpinehouse2025@gmail.com">
                   {" "}
                   <FiMail /> alpinehouse2025@gmail.com
                 </a>
-
-             
-
               </p>
               <p className="contact-info ">
                 <a href="tel:+19702795107">
@@ -164,112 +200,187 @@ const Reserve = () => {
           </div>
 
           <div className="form-holder ">
-            <form action="" onSubmit={handleSubmit}>
-              <div className="inputs-holder">
-                <div className="label-holder">
-                  <label htmlFor="name-input">Name</label>
-                  {errors.name && <p>{errors.name}</p>}
-                </div>
-                <input
-                  type="text"
-                  id="name-input"
-                  name="name"
-                  value={input.name}
-                  onChange={handleInput}
-                  style={{ outline: errors.name ? "1px solid red" : "none" }}
-                />
+            {/* CONDITIONAL RENDERING - Prikaži success message ili formu */}
+            {success ? (
+              <div className="success-message">
+                <h3 className="success-mess-title">
+                  <FaCheck className="success-mess-icon" /> Reservation
+                  Submitted Successfully!
+                </h3>
+                <p className="success-mess-text">
+                  We'll contact you soon to confirm your booking.
+                </p>
+                <button
+                  onClick={() => setSuccess(false)}
+                  className="form-btn reserve-btn"
+                >
+                  Back to Form
+                </button>
               </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                {errors.general && (
+                  <div
+                    className="error-message"
+                    style={{ color: "red", marginBottom: "1rem" }}
+                  >
+                    {errors.general}
+                  </div>
+                )}
 
-              <div className="inputs-holder">
-                <div className="label-holder">
-                  <label htmlFor="phone-input">Phone Number</label>
-                  {errors.phone && <p>{errors.phone}</p>}
-                </div>
-                <input
-                  type="number"
-                  id="phone-input"
-                  min={0}
-                  name="phone"
-                  value={input.phone}
-                  onChange={handleInput}
-                  style={{ outline: errors.phone ? "1px solid red" : "none" }}
-                />
-              </div>
-
-              <div className="inputs-holder">
-                <div className="label-holder">
-                  <label htmlFor="email-input">Email</label>
-                  {errors.email && <p>{errors.email}</p>}
-                </div>
-                <input
-                  type="text"
-                  id="email-input"
-                  name="email"
-                  value={input.email}
-                  onChange={handleInput}
-                  style={{
-                    outline: errors.email ? "1px solid red" : "none",
-                  }}
-                />
-              </div>
-
-              <div className="date-time-holder">
                 <div className="inputs-holder">
                   <div className="label-holder">
-                    <label htmlFor="date-input">Date</label>
-                    {errors.date && <p>{errors.date}</p>}
+                    <label htmlFor="name-input">Name</label>
+                    {errors.name && (
+                      <p style={{ color: "red", fontSize: "0.8rem" }}>
+                        {errors.name}
+                      </p>
+                    )}
                   </div>
                   <input
-                    type="date"
-                    id="date-input"
-                    name="date"
-                    value={input.date}
+                    type="text"
+                    id="name-input"
+                    name="name"
+                    value={input.name}
                     onChange={handleInput}
-                    style={{ outline: errors.date ? "1px solid red" : "none" }}
+                    style={{ outline: errors.name ? "1px solid red" : "none" }}
                   />
                 </div>
 
                 <div className="inputs-holder">
                   <div className="label-holder">
-                    <label htmlFor="time-input">Time</label>
-                    {errors.time && <p>{errors.time}</p>}
+                    <label htmlFor="phone-input">Phone Number</label>
+                    {errors.phone && (
+                      <p style={{ color: "red", fontSize: "0.8rem" }}>
+                        {errors.phone}
+                      </p>
+                    )}
                   </div>
                   <input
-                    type="time"
-                    id="time-input"
-                    name="time"
-                    value={input.time}
+                    type="tel"
+                    id="phone-input"
+                    name="phone"
+                    value={input.phone}
                     onChange={handleInput}
-                    style={{ outline: errors.time ? "1px solid red" : "none" }}
+                    style={{ outline: errors.phone ? "1px solid red" : "none" }}
                   />
                 </div>
-              </div>
 
-              <div className="inputs-holder">
-                <div className="label-holder">
-                  <label htmlFor="number-of-ppl-input">Number of People</label>
-                  {errors.number && <p>{errors.number}</p>}
+                <div className="inputs-holder">
+                  <div className="label-holder">
+                    <label htmlFor="email-input">Email</label>
+                    {errors.email && (
+                      <p style={{ color: "red", fontSize: "0.8rem" }}>
+                        {errors.email}
+                      </p>
+                    )}
+                  </div>
+                  <input
+                    type="text"
+                    id="email-input"
+                    name="email"
+                    value={input.email}
+                    onChange={handleInput}
+                    style={{
+                      outline: errors.email ? "1px solid red" : "none",
+                    }}
+                  />
                 </div>
-                <input
-                  type="number"
-                  id="number-of-ppl-input"
-                  name="number"
-                  value={input.number}
-                  onChange={handleInput}
-                  style={{ outline: errors.number ? "1px solid red" : "none" }}
-                />
-              </div>
 
-              <div className="inputs-holder">
-                <label htmlFor="message-input">Message</label>
-                <textarea
-                  name="text-area"
-                  id="message-input"
-                  placeholder="Any special requests?"
-                ></textarea>
-              </div>
-              <button className="form-btn reserve-btn">Submit</button>
-            </form>
+                <div className="date-time-holder">
+                  <div className="inputs-holder">
+                    <div className="label-holder">
+                      <label htmlFor="date-input">Date</label>
+                      {errors.date && (
+                        <p style={{ color: "red", fontSize: "0.8rem" }}>
+                          {errors.date}
+                        </p>
+                      )}
+                    </div>
+                    <input
+                      type="date"
+                      id="date-input"
+                      name="date"
+                      value={input.date}
+                      onChange={handleInput}
+                      min={new Date().toISOString().split("T")[0]}
+                      style={{
+                        outline: errors.date ? "1px solid red" : "none",
+                      }}
+                    />
+                  </div>
+
+                  <div className="inputs-holder">
+                    <div className="label-holder">
+                      <label htmlFor="time-input">Time</label>
+                      {errors.time && (
+                        <p style={{ color: "red", fontSize: "0.8rem" }}>
+                          {errors.time}
+                        </p>
+                      )}
+                    </div>
+                    <input
+                      type="time"
+                      id="time-input"
+                      name="time"
+                      value={input.time}
+                      onChange={handleInput}
+                      style={{
+                        outline: errors.time ? "1px solid red" : "none",
+                      }}
+                    />
+                  </div>
+                </div>
+
+                <div className="inputs-holder">
+                  <div className="label-holder">
+                    <label htmlFor="number-of-ppl-input">
+                      Number of People
+                    </label>
+                    {errors.number && (
+                      <p style={{ color: "red", fontSize: "0.8rem" }}>
+                        {errors.number}
+                      </p>
+                    )}
+                  </div>
+                  <input
+                    type="number"
+                    id="number-of-ppl-input"
+                    name="number"
+                    min="1"
+                    max="20"
+                    inputMode="numeric"
+                    onInput={(e) => {
+                      e.target.value = e.target.value.replace(/[^0-9]/g, "");
+                    }}
+                    value={input.number}
+                    onChange={handleInput}
+                    style={{
+                      outline: errors.number ? "1px solid red" : "none",
+                    }}
+                  />
+                </div>
+
+                <div className="inputs-holder">
+                  <label htmlFor="message-input">Message</label>
+                  <textarea
+                    name="text-area"
+                    id="message-input"
+                    placeholder="Any special requests?"
+                    value={input["text-area"]}
+                    onChange={handleInput}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="form-btn reserve-btn"
+                  disabled={loading}
+                >
+                  {loading ? "Submitting..." : "Submit"}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>
@@ -316,4 +427,5 @@ const Reserve = () => {
     </main>
   );
 };
+
 export default Reserve;

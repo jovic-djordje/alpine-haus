@@ -200,4 +200,11 @@ footer {
     align-items: center;
     gap: 20px;
   }
+
+  .footer-info-holder p {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0px;
+  }
 }
