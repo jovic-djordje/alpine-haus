@@ -4,54 +4,85 @@ import { FiSmartphone } from "react-icons/fi";
 import { FiMail } from "react-icons/fi";
 import { FiMapPin } from "react-icons/fi";
 import { RestaurantInterior } from "../../assets/images";
-
+import { FaCheck } from "react-icons/fa6";
 import { useState } from "react";
+import { supabase } from "../../library/supabase.js";
 import "./about.style.css";
 
 const About = () => {
-  const [errors, setErrors] = useState({});
   const [input, setInput] = useState({
     name: "",
     email: "",
     message: "",
   });
 
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   const handleInput = (e) => {
     const { name, value } = e.target;
-    setInput({
-      ...input,
+    setInput((prev) => ({
+      ...prev,
       [name]: value,
-    });
+    }));
 
-    //kada korisnik krene kucati greska se brise
-    setErrors({
-      ...errors,
-      [name]: "",
-    });
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const validateForm = () => {
+    const newErrors = {};
 
-    let newErrors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!input.name.trim()) newErrors.name = "Name is required";
+    if (!input.email.trim()) newErrors.email = "Email is required";
+    if (!input.message.trim()) newErrors.message = "Message is required";
 
-    //Email
-    if (!input.email.trim()) {
-      newErrors.email = "This field is required";
-    } else if (!emailRegex.test(input.email)) {
-      newErrors.email = "Enter a valid email";
-    }
-
-    //Name
-    if (!input.name.trim()) newErrors.name = "This field is required";
-
-    //Message
-    if (!input.message.trim()) {
-      newErrors.message = "This field is required";
+    if (input.email && !/\S+@\S+\.\S+/.test(input.email)) {
+      newErrors.email = "Please enter a valid email";
     }
 
     setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    setLoading(true);
+    setSuccess(false);
+
+    try {
+      const { data, error } = await supabase.from("contact_messages").insert([
+        {
+          name: input.name,
+          email: input.email,
+          message: input.message,
+        },
+      ]);
+
+      if (error) throw error;
+
+      console.log("Contact message saved:", data);
+      setSuccess(true);
+
+      setInput({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error saving contact message:", error);
+      setErrors({ general: "Something went wrong. Please try again." });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -117,14 +148,10 @@ const About = () => {
             </p>
             <div className="contact-info-holder">
               <p className="contact-info ">
-
                 <a href="mailto:alpinehouse2025@gmail.com">
                   {" "}
                   <FiMail /> alpinehouse2025@gmail.com
                 </a>
-
-            
-
               </p>
               <p className="contact-info">
                 <a href="tel:+19702795107">
@@ -146,53 +173,83 @@ const About = () => {
           </div>
 
           <div className="form-holder">
-            <form action="" onSubmit={handleSubmit}>
-              <div className="inputs-holder">
-                <div className="label-holder">
-                  <label htmlFor="name-input">Name</label>
-                  {errors.name && <p>{errors.name}</p>}
-                </div>
-                <input
-                  type="text"
-                  id="name-input"
-                  name="name"
-                  onChange={handleInput}
-                  value={input.name}
-                  style={{ outline: errors.name ? "1px solid red" : "none" }}
-                />
+            {/* CONDITIONAL RENDERING - Prikaži success message ili formu */}
+            {success ? (
+              <div className="success-message">
+                <h3 className="success-mess-title">
+                  <FaCheck className="success-mess-icon" />
+                  Message Sent Successfully!
+                </h3>
+                <p className="success-mess-text">
+                  Thank you for contacting us. We'll get back to you soon!
+                </p>
+                <button onClick={() => setSuccess(false)} className="form-btn">
+                  Back to Form
+                </button>
               </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                {errors.general && (
+                  <div
+                    className="error-message"
+                    style={{ color: "red", marginBottom: "1rem" }}
+                  >
+                    {errors.general}
+                  </div>
+                )}
 
-              <div className="inputs-holder">
-                <div className="label-holder">
-                  <label htmlFor="email-input">Email</label>
-                  {errors.email && <p>{errors.email}</p>}
+                <div className="inputs-holder">
+                  <div className="label-holder">
+                    <label htmlFor="name-input">Name</label>
+                    {errors.name && <p>{errors.name}</p>}
+                  </div>
+                  <input
+                    type="text"
+                    id="name-input"
+                    name="name"
+                    onChange={handleInput}
+                    value={input.name}
+                    style={{ outline: errors.name ? "1px solid red" : "none" }}
+                  />
                 </div>
-                <input
-                  type="text"
-                  id="email-input"
-                  name="email"
-                  onChange={handleInput}
-                  value={input.email}
-                  style={{ outline: errors.email ? "1px solid red" : "none" }}
-                />
-              </div>
 
-              <div className="inputs-holder">
-                <div className="label-holder">
-                  <label htmlFor="message-input">Message</label>
-                  {errors.message && <p>{errors.message}</p>}
+                <div className="inputs-holder">
+                  <div className="label-holder">
+                    <label htmlFor="email-input">Email</label>
+                    {errors.email && <p>{errors.email}</p>}
+                  </div>
+                  <input
+                    type="email"
+                    id="email-input"
+                    name="email"
+                    onChange={handleInput}
+                    value={input.email}
+                    style={{ outline: errors.email ? "1px solid red" : "none" }}
+                  />
                 </div>
-                <textarea
-                  name="message"
-                  id="message-input"
-                  placeholder="Type your message..."
-                  value={input.message}
-                  onChange={handleInput}
-                  style={{ outline: errors.message ? "1px solid red" : "none" }}
-                ></textarea>
-              </div>
-              <button className="form-btn">Submit</button>
-            </form>
+
+                <div className="inputs-holder">
+                  <div className="label-holder">
+                    <label htmlFor="message-input">Message</label>
+                    {errors.message && <p>{errors.message}</p>}
+                  </div>
+                  <textarea
+                    name="message"
+                    id="message-input"
+                    placeholder="Type your message..."
+                    value={input.message}
+                    onChange={handleInput}
+                    style={{
+                      outline: errors.message ? "1px solid red" : "none",
+                    }}
+                  />
+                </div>
+
+                <button type="submit" className="form-btn" disabled={loading}>
+                  {loading ? "Sending..." : "Submit"}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </section>

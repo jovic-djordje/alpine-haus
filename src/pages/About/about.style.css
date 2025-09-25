@@ -53,7 +53,7 @@
 .about-page-contact-section-holder {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
 }
 
 .form-text-holder {
@@ -101,7 +101,6 @@
 
 .contact-info a {
   text-decoration: none;
-
 
   color: hsl(0, 0%, 0%);
 
@@ -288,6 +287,10 @@ iframe::after {
   }
 
   textarea {
+    max-width: 800px;
+  }
+
+  .about-section-img {
     max-width: 800px;
   }
 }

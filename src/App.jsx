@@ -6,9 +6,9 @@ import Menu from "./pages/Menu/Menu";
 import Specials from "./pages/Specials/Specials";
 import Reserve from "./pages/Reserve/Reserve";
 import Footer from "./components/footer/Footer";
-import "animate.css";
-import "./App.css";
 import ScrollToTop from "./components/ScrollToTop";
+import supabase from "./library/supabase";
+import "./App.css";
 
 function App() {
   return (
